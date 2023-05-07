@@ -287,7 +287,7 @@ try:
                             url = link
                             break
 
-                    QDesktopServices.openUrl(QUrl(url))
+                    QDesktopServices.openUrl(QUrl(url))s
 
 
                 self.about_window = QMainWindow()
