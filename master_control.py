@@ -3,7 +3,6 @@ import time
 from random import choice
 from threading import Thread
 from random import randint
-
 import mysql.connector #Veritabanı bağlantı
 
 from PyQt6 import QtCore, QtGui, QtWidgets
@@ -16,6 +15,25 @@ from reset_password import Ui_MainWindow_reset_password
 from main import Ui_MainWindow_main
 from about import Ui_MainWindow_about
 
+def kosul_kutusu(Title,Contents,Signal,Picture_Path):
+    message = QMessageBox()
+    message.setWindowTitle(Title)
+    message.setText(Contents)
+    message.setIcon(Signal)
+    message.setWindowIcon(QIcon(Picture_Path))
+
+    message.setStandardButtons(QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+    message.setDefaultButton(QMessageBox.StandardButton.No)
+
+    message_yes = message.button(QMessageBox.StandardButton.Yes)
+    message_no = message.button(QMessageBox.StandardButton.No)
+
+    message.exec()
+
+    if message.clickedButton() == message_yes:
+        return True
+    else:
+        return False
 
 def mesaj_kutusu(Title, Contents, Signal, Picture_Path):  # Mesaj Bildirim Kutusu
     message = QMessageBox()
@@ -46,10 +64,27 @@ try:
 
             self.login.login.clicked.connect(self.login_entrance)
             self.login.reset_password.clicked.connect(self.login_reset)
+            self.login.eye_password.clicked.connect(self.view_hide)
+
+            self.login.login.setShortcut('Return')
 
             self.login_connectDb()
+            self.change = True
+
+        def view_hide(self):
+
+            if self.change:
+                self.login.password.setEchoMode(QLineEdit.EchoMode.Normal)
+                self.login.eye_password.setIcon(QIcon("Resimler/hide.png"))
+                self.change = False
+            else:
+                self.login.password.setEchoMode(QLineEdit.EchoMode.Password)
+                self.login.eye_password.setIcon(QIcon("Resimler/view.png"))
+                self.change = True
 
         def login_reset(self,window = 'login',username_K = ''):
+
+            self.change = True
 
             self.login.username.clear()
             self.login.password.clear()
@@ -107,7 +142,7 @@ try:
                     if len(username_app) == 0 or len(password_app) == 0 or len(password_repeat_app) == 0:
                         raise SyntaxError(mesaj_kutusu("Info","Fill in all fields.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
 
-                    self.cursor.execute("SELECT id,username FROM users") # Sorgu ile id ve kullanıcı adını çekildi.
+                    self.cursor.execute("SELECT id,username FROM login_password") # Sorgu ile id ve kullanıcı adını çekildi.
                     users = self.cursor.fetchall() # users olan kullanıcıları gönderildi.
 
                     Id,control_user = False,'' # Kontrol değişkenleri oluşturuldu.
@@ -121,7 +156,7 @@ try:
 
                     if control_user:
                         if password_app == password_repeat_app:
-                            self.cursor.execute(f"UPDATE users SET password = '{password_app}' WHERE id = %s",(Id,))
+                            self.cursor.execute(f"UPDATE login_password SET password = '{password_app}' WHERE id = %s",(Id,))
                             self.connect.commit()
 
                             mesaj_kutusu("Info","Password change successful.",QMessageBox.Icon.Information,"Resimler/notification_beyaz.png")
@@ -159,8 +194,6 @@ try:
             login_main = Ui_MainWindow_reset_password()
             login_main.setupUi(self.login_window)
 
-            self.change = True
-
             login_main.back_frost.clicked.connect(back_frost)
             login_main.reset_password.clicked.connect(forgot_password)
             login_main.generate_password.clicked.connect(generate_password)
@@ -187,7 +220,7 @@ try:
             )
 
             self.cursor = self.connect.cursor()
-        def login_entrance(self):
+        def login_entrance(self): # Yanlış yapıldı düzeltilecek
 
             try:
 
@@ -197,7 +230,7 @@ try:
                 if len(username) == 0 or len(password) == 0:
                     raise SyntaxError(mesaj_kutusu("Info","Fill in all fields.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
 
-                self.cursor.execute("SELECT username,password FROM users")
+                self.cursor.execute("SELECT username,password FROM login_password")
                 users = self.cursor.fetchall()
 
                 control,control_2 = False,False
@@ -227,6 +260,190 @@ try:
             except Exception as ex:
                 print(ex)
         def main(self,username_K):
+            def delete_db():
+
+                try:
+                    id = main.id_del.text().strip()
+
+                    if len(id) == 0:
+                        raise SyntaxError(mesaj_kutusu("Info", "Fill in all fields.", QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+
+                    self.cursor.execute("SELECT id FROM user_data")
+                    control_id, users_id = False, self.cursor.fetchall()
+
+                    for user_id in users_id:
+                        if str(user_id[0]) == id:
+                            control_id = True
+                            break
+
+                    if not control_id:
+                        raise SyntaxError(mesaj_kutusu("Info", "No record found with this id.", QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+
+
+                    result = kosul_kutusu("Info","Are you sure you want to delete ?",QMessageBox.Icon.Critical,"Resimler/information-button_beyaz.png")
+
+                    if result:
+                        self.cursor.execute("DELETE FROM user_data WHERE id = %s",(id,))
+                        self.connect.commit()
+
+                        mesaj_kutusu('Info', 'The deletion was successful.', QMessageBox.Icon.Information,'Resimler/info-button_beyaz.png')
+
+                        all_show()
+
+                    main.id_del.clear()
+
+
+                except Exception as ex:
+                    print(ex)
+
+            def edit_information(): # Bakılacak unutma !
+
+                try:
+
+                    id = main.id_edit.text().strip()
+                    website = main.website_edit.text().strip()
+                    username = main.username_edit.text().strip()
+                    password = main.password_edit.text().strip()
+                    password_repeat = main.password_repeat_edit.text().strip()
+
+                    if len(id) == 0 or len(website) == 0 or len(username) == 0 or len(password) == 0 or len(password_repeat) == 0:
+                        raise SyntaxError(mesaj_kutusu("Info","Fill in all fields.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+
+                    self.cursor.execute("SELECT id FROM user_data")
+                    control_id,users_id = False,self.cursor.fetchall()
+
+                    for user_id in users_id:
+                        if str(user_id[0]) == id:
+                            control_id = True
+                            break
+
+                    if control_id:
+
+                        self.cursor.execute("SELECT * FROM username_data")
+                        users_control = self.cursor.fetchall()
+
+                        for x,y in users_control:
+                            if y == username:
+                                ok = True
+                                break
+                        else:
+                            ok = False
+
+                        if ok:
+                            self.cursor.execute("UPDATE user_data SET website_name = %s,username_id = %s,password = %s WHERE id = %s",(website,x,password,id))
+                            self.connect.commit()
+
+                            for widget in main.groupBox_2.findChildren(QLineEdit):
+                                widget.clear()
+
+                        else:
+
+                            self.cursor.execute("INSERT INTO username_data(username) VALUES (%s)",(username,))
+                            self.connect.commit()
+
+                            self.cursor.execute("UPDATE user_data SET website_name = %s,username_id = %s,password = %s WHERE id = %s",(website, self.cursor.lastrowid, password,id))
+                            self.connect.commit()
+
+                            for widget in main.groupBox_2.findChildren(QLineEdit):
+                                widget.clear()
+
+
+                        mesaj_kutusu('Info', 'Registration successfully added.', QMessageBox.Icon.Information,
+                                     'Resimler/info-button_beyaz.png')
+
+                        all_show()
+                    else:
+                        raise SyntaxError(mesaj_kutusu("Info","No record found with this id.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+
+
+                except Exception as ex:
+                    print(ex)
+
+            def username_search():
+
+                try:
+
+                    username = main.username_search.text().strip()
+
+                    if len(username) == 0:
+                        raise SyntaxError(mesaj_kutusu("Info","Fill in all fields.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+
+                    self.cursor.execute(f"""SELECT id,website_name,username_data.username,password FROM user_data 
+                                        INNER JOIN username_data ON user_data.username_id = username_data.username_id
+                                        WHERE username_data.username LIKE '%{username}%'
+                                         """)
+
+                    infos, rowIndex = self.cursor.fetchall(), 0  # Bilgilerimizi değişkene attık.
+
+                    if len(infos) == 0:
+                        raise SyntaxError(mesaj_kutusu("Info","No Records Found.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+
+                    main.girdiler.setRowCount(0)
+
+                    for write in infos:
+                        rowCount = main.girdiler.rowCount()
+
+                        main.girdiler.insertRow(rowCount)
+
+                        main.girdiler.setItem(rowIndex, 0, QTableWidgetItem(str(write[0])))
+                        main.girdiler.setItem(rowIndex, 1, QTableWidgetItem(str(write[1])))
+                        main.girdiler.setItem(rowIndex, 2, QTableWidgetItem(str(write[2])))
+                        main.girdiler.setItem(rowIndex, 3, QTableWidgetItem(str(write[3])))
+
+                        rowIndex += 1
+
+                    for widget in main.groupBox_3.findChildren(QLineEdit):
+                        widget.clear()
+
+                except Exception as ex:
+                    print(ex)
+
+            def add_new():
+
+                try:
+
+                    website_name = main.website_new.text().strip()
+                    username = main.username_new.text().strip()
+                    password = main.password_new.text().strip()
+                    password_repeat = main.password_repeat_new.text().strip()
+
+                    if len(website_name) == 0 or len(username) == 0 or len(password) == 0 or len(password_repeat) == 0:
+                        raise SyntaxError(mesaj_kutusu("Info","Fill in all fields.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+
+                    self.cursor.execute("SELECT * FROM username_data")
+                    users,user_control = self.cursor.fetchall(),False
+
+                    for Id,user in users:
+                        if user == username:
+                            user_control = True
+                            break
+
+                    if user_control:
+                        self.cursor.execute(f"INSERT INTO user_data (website_name,username_id,password) VALUES (%s,'{Id}',%s)",(website_name,password))
+                        self.connect.commit()
+
+                        mesaj_kutusu('Info','Registration successfully added.',QMessageBox.Icon.Information,'Resimler/info-button_beyaz.png')
+
+                        for widget in main.groupBox.findChildren(QLineEdit):
+                            widget.clear()
+                    else:
+                        self.cursor.execute("INSERT INTO username_data (username) VALUES (%s)",(username,))
+                        self.connect.commit()
+
+                        Id = self.cursor.lastrowid
+
+                        self.cursor.execute(f"INSERT INTO user_data (website_name,username_id,password) VALUES (%s,'{Id}',%s)",(website_name,password))
+                        self.connect.commit()
+
+                        mesaj_kutusu('Info', 'Registration successfully added.', QMessageBox.Icon.Information,
+                                     'Resimler/info-button_beyaz.png')
+
+                        for widget in main.groupBox.findChildren(QLineEdit):
+                            widget.clear()
+
+                    all_show()
+                except Exception as ex:
+                    print(ex)
 
             def all_show():
 
@@ -234,7 +451,7 @@ try:
 
                 time.sleep(0.2)
 
-                self.cursor.execute("SELECT * FROM users")
+                self.cursor.execute("SELECT id,website_name,username_data.username,password FROM user_data inner join username_data ON user_data.username_id = username_data.username_id")
                 infos,rowIndex = self.cursor.fetchall(),0 # Bilgilerimizi değişkene attık.
 
                 main.girdiler.setRowCount(0)
@@ -247,6 +464,7 @@ try:
                     main.girdiler.setItem(rowIndex,0,QTableWidgetItem(str(write[0])))
                     main.girdiler.setItem(rowIndex,1, QTableWidgetItem(str(write[1])))
                     main.girdiler.setItem(rowIndex, 2, QTableWidgetItem(str(write[2])))
+                    main.girdiler.setItem(rowIndex,3,QTableWidgetItem(str(write[3])))
 
                     rowIndex += 1
 
@@ -266,7 +484,8 @@ try:
                                                         background-color: red;
                                                         color: white;
                                                         width: 50px;
-                                                        height: 50px; """)
+                                                        height: 50px; 
+                                                    """)
 
                 main.label_control.setText("Database Not Connected")
 
@@ -301,6 +520,7 @@ try:
                 about.instagram.clicked.connect(git)
 
                 self.about_window.setWindowTitle("About")
+                self.about_window.setWindowIcon(QIcon("Resimler/information-button_beyaz.png"))
 
                 self.about_window.show()
 
@@ -326,6 +546,12 @@ try:
                             height: 50px; """)
 
                     main.label_control.setText("Database Connected")
+
+                    main.all_show.setEnabled(True)
+                    main.save_new.setEnabled(True)
+                    main.search.setEnabled(True)
+                    main.save_change.setEnabled(True)
+                    main.data_delete.setEnabled(True)
 
                 except Exception as ex:
                     print(f"Hata : {ex}") #---------------------------------------------------------------------> Bakılacak yer.
@@ -386,15 +612,33 @@ try:
 
             main.generate_password_new.clicked.connect(generate_password)
             main.generate_password_edit.clicked.connect(generate_password)
+
             main.user_settings.clicked.connect(user_settings)
             main.change_user.clicked.connect(login_go)
+
             main.all_show.clicked.connect(all_show)
+            main.save_new.clicked.connect(add_new)
+            main.search.clicked.connect(username_search)
+            main.save_change.clicked.connect(edit_information)
+            main.data_delete.clicked.connect(delete_db)
+
+            main.all_show.setEnabled(False)
+            main.save_new.setEnabled(False)
+            main.search.setEnabled(False)
+            main.save_change.setEnabled(False)
+            main.data_delete.setEnabled(False)
 
             connect_thread = Thread(target=connection)
             connect_thread.start()
 
-            self.main_window.show()
+            # Tablo Ayarları -- >
+            main.girdiler.setColumnWidth(0,50)
+            main.girdiler.setColumnWidth(1, 215)
+            main.girdiler.setColumnWidth(2, 215)
+            main.girdiler.setColumnWidth(3, 215)
+            main.girdiler.setColumnWidth(4, 215)
 
+            self.main_window.show()
 
     application = QApplication(sys.argv)
     window = Password_Manager()
@@ -402,4 +646,4 @@ try:
     sys.exit(application.exec())
 
 except Exception as ex:
-    print(ex)
+    mesaj_kutusu("Info",f"Hata Mesajı : {ex}",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png")

@@ -214,11 +214,11 @@ class Ui_MainWindow_reset_password(object):
         self.retranslateUi(MainWindow_reset_password)
         QtCore.QMetaObject.connectSlotsByName(MainWindow_reset_password)
         MainWindow_reset_password.setTabOrder(self.username, self.password)
-        MainWindow_reset_password.setTabOrder(self.password, self.eye_password)
-        MainWindow_reset_password.setTabOrder(self.eye_password, self.password_again)
-        MainWindow_reset_password.setTabOrder(self.password_again, self.generate_password)
-        MainWindow_reset_password.setTabOrder(self.generate_password, self.reset_password)
-        MainWindow_reset_password.setTabOrder(self.reset_password, self.back_frost)
+        MainWindow_reset_password.setTabOrder(self.password, self.password_again)
+        MainWindow_reset_password.setTabOrder(self.password_again, self.reset_password)
+        MainWindow_reset_password.setTabOrder(self.reset_password, self.generate_password)
+        MainWindow_reset_password.setTabOrder(self.generate_password, self.eye_password)
+        MainWindow_reset_password.setTabOrder(self.eye_password, self.back_frost)
 
     def retranslateUi(self, MainWindow_reset_password):
         _translate = QtCore.QCoreApplication.translate

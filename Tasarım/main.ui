@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1112</width>
-    <height>695</height>
+    <width>1200</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1112</width>
-    <height>695</height>
+    <width>1200</width>
+    <height>800</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1112</width>
-    <height>695</height>
+    <width>1200</width>
+    <height>800</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -35,30 +35,30 @@ background-size: cover;
 }
 </string>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_7">
+   <layout class="QVBoxLayout" name="verticalLayout_5">
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_11">
       <property name="spacing">
        <number>5</number>
       </property>
       <property name="leftMargin">
-       <number>5</number>
+       <number>0</number>
       </property>
       <property name="topMargin">
-       <number>5</number>
+       <number>0</number>
       </property>
       <property name="rightMargin">
-       <number>5</number>
+       <number>0</number>
       </property>
       <property name="bottomMargin">
-       <number>5</number>
+       <number>0</number>
       </property>
       <item>
        <widget class="QGroupBox" name="groupBox_4">
         <property name="minimumSize">
          <size>
-          <width>337</width>
-          <height>626</height>
+          <width>0</width>
+          <height>0</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -92,19 +92,19 @@ background-size: cover;
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_11">
            <property name="spacing">
-            <number>5</number>
+            <number>7</number>
            </property>
            <property name="leftMargin">
-            <number>5</number>
+            <number>7</number>
            </property>
            <property name="topMargin">
-            <number>5</number>
+            <number>7</number>
            </property>
            <property name="rightMargin">
-            <number>5</number>
+            <number>7</number>
            </property>
            <property name="bottomMargin">
-            <number>5</number>
+            <number>7</number>
            </property>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_20">
@@ -587,6 +587,198 @@ QPushButton:pressed {
               <property name="bottomMargin">
                <number>0</number>
               </property>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_16">
+              <property name="spacing">
+               <number>6</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QGroupBox" name="groupBox_5">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>80</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>80</height>
+                 </size>
+                </property>
+                <property name="sizeIncrement">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QGroupBox {
+   color:#fff;
+   font: 11pt;
+   border-radius: 10px;
+   border: 2px solid #fff;
+}
+</string>
+                </property>
+                <property name="title">
+                 <string>Deletion Location</string>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_23" stretch="0">
+                 <property name="spacing">
+                  <number>5</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>5</number>
+                 </property>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_24">
+                   <property name="spacing">
+                    <number>5</number>
+                   </property>
+                   <property name="leftMargin">
+                    <number>5</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>10</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>5</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <widget class="QLineEdit" name="id_del">
+                     <property name="minimumSize">
+                      <size>
+                       <width>230</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>200</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <pointsize>-1</pointsize>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">#id_del {
+  background-color: #4A4A4A;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+font-size: 14px;
+}
+
+#id_del:focus {
+border: 2px solid #fff;
+  outline: none;
+}
+
+
+</string>
+                     </property>
+                     <property name="inputMask">
+                      <string/>
+                     </property>
+                     <property name="placeholderText">
+                      <string>Enter ID</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_22">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="data_delete">
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QPushButton {
+  background-color: #4A4A4A;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+
+  letter-spacing: 1px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+QPushButton:hover {
+  background-color: #666;
+}
+
+QPushButton:pressed {
+  background-color: #333;
+}
+</string>
+                     </property>
+                     <property name="text">
+                      <string>Delete</string>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>../Resimler/trash_beyaz.png</normaloff>../Resimler/trash_beyaz.png</iconset>
+                     </property>
+                     <property name="iconSize">
+                      <size>
+                       <width>22</width>
+                       <height>22</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+              </item>
               <item>
                <widget class="QGroupBox" name="groupBox_3">
                 <property name="minimumSize">
@@ -619,26 +811,41 @@ QPushButton:pressed {
                 <property name="title">
                  <string>Search Location</string>
                 </property>
-                <layout class="QHBoxLayout" name="horizontalLayout_16" stretch="0">
+                <layout class="QHBoxLayout" name="horizontalLayout_17" stretch="0">
                  <property name="spacing">
-                  <number>10</number>
+                  <number>5</number>
                  </property>
                  <property name="leftMargin">
-                  <number>10</number>
+                  <number>5</number>
                  </property>
                  <property name="topMargin">
-                  <number>10</number>
+                  <number>5</number>
                  </property>
                  <property name="rightMargin">
-                  <number>10</number>
+                  <number>5</number>
                  </property>
                  <property name="bottomMargin">
-                  <number>10</number>
+                  <number>5</number>
                  </property>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_17">
+                  <layout class="QHBoxLayout" name="horizontalLayout_35">
+                   <property name="spacing">
+                    <number>5</number>
+                   </property>
+                   <property name="leftMargin">
+                    <number>5</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>5</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>5</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
                    <item>
-                    <widget class="QLineEdit" name="id_search">
+                    <widget class="QLineEdit" name="username_search">
                      <property name="minimumSize">
                       <size>
                        <width>230</width>
@@ -657,7 +864,7 @@ QPushButton:pressed {
                       </font>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">#id_search {
+                      <string notr="true">#username_search {
   background-color: #4A4A4A;
   color: #fff;
   padding: 5px 10px;
@@ -666,7 +873,7 @@ QPushButton:pressed {
 font-size: 14px;
 }
 
-#id_search:focus {
+#username_search:focus {
 border: 2px solid #fff;
   outline: none;
 }
@@ -678,7 +885,7 @@ border: 2px solid #fff;
                       <string/>
                      </property>
                      <property name="placeholderText">
-                      <string>ID Write</string>
+                      <string>Enter Username</string>
                      </property>
                     </widget>
                    </item>
@@ -767,7 +974,7 @@ QPushButton:pressed {
   border: none;
   font-size: 14px;
   font-weight: normal;
-  color: #333;
+  color: #fff;
   border-radius: 10px;
   border: 7px solid #fff;
 }
@@ -1273,7 +1480,7 @@ QPushButton:pressed {
            <widget class="QGroupBox" name="groupBox_2">
             <property name="minimumSize">
              <size>
-              <width>353</width>
+              <width>360</width>
               <height>311</height>
              </size>
             </property>
@@ -1565,8 +1772,8 @@ border: 2px solid #fff;
                   <widget class="QPushButton" name="generate_password_edit">
                    <property name="minimumSize">
                     <size>
-                     <width>91</width>
-                     <height>48</height>
+                     <width>100</width>
+                     <height>50</height>
                     </size>
                    </property>
                    <property name="maximumSize">
@@ -1761,13 +1968,38 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1112</width>
+     <width>1200</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>all_show</tabstop>
+  <tabstop>user_settings</tabstop>
+  <tabstop>change_user</tabstop>
+  <tabstop>about</tabstop>
+  <tabstop>id_del</tabstop>
+  <tabstop>data_delete</tabstop>
+  <tabstop>username_search</tabstop>
+  <tabstop>search</tabstop>
+  <tabstop>girdiler</tabstop>
+  <tabstop>website_new</tabstop>
+  <tabstop>username_new</tabstop>
+  <tabstop>password_new</tabstop>
+  <tabstop>generate_password_new</tabstop>
+  <tabstop>password_repeat_new</tabstop>
+  <tabstop>save_new</tabstop>
+  <tabstop>id_edit</tabstop>
+  <tabstop>website_edit</tabstop>
+  <tabstop>username_edit</tabstop>
+  <tabstop>password_edit</tabstop>
+  <tabstop>password_repeat_edit</tabstop>
+  <tabstop>generate_password_edit</tabstop>
+  <tabstop>save_change</tabstop>
+  <tabstop>database_control</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

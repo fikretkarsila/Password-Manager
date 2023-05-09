@@ -26,64 +26,44 @@ class Ui_MainWindow_login(object):
 "}\n"
 "")
         self.centralwidget.setObjectName("centralwidget")
-        self.layoutWidget = QtWidgets.QWidget(parent=self.centralwidget)
-        self.layoutWidget.setGeometry(QtCore.QRect(20, -10, 370, 473))
-        self.layoutWidget.setObjectName("layoutWidget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.layoutWidget)
-        self.verticalLayout.setContentsMargins(30, 30, 30, 30)
-        self.verticalLayout.setSpacing(30)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.horizontalLayout = QtWidgets.QHBoxLayout()
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout.addItem(spacerItem)
-        self.label = QtWidgets.QLabel(parent=self.layoutWidget)
-        self.label.setMinimumSize(QtCore.QSize(188, 188))
-        self.label.setMaximumSize(QtCore.QSize(188, 188))
-        self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("Tasarım\\../Resimler/lock_beyaz.png"))
-        self.label.setObjectName("label")
-        self.horizontalLayout.addWidget(self.label)
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout.addItem(spacerItem1)
-        self.verticalLayout.addLayout(self.horizontalLayout)
-        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_3.addItem(spacerItem2)
-        self.username = QtWidgets.QLineEdit(parent=self.layoutWidget)
-        self.username.setMinimumSize(QtCore.QSize(245, 43))
-        self.username.setMaximumSize(QtCore.QSize(245, 43))
+        self.label_2 = QtWidgets.QLabel(parent=self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(150, -150, 641, 561))
+        self.label_2.setText("")
+        self.label_2.setPixmap(QtGui.QPixmap("Tasarım\\../Resimler/smoke_beyaz.png"))
+        self.label_2.setObjectName("label_2")
+        self.label_3 = QtWidgets.QLabel(parent=self.centralwidget)
+        self.label_3.setGeometry(QtCore.QRect(-310, 330, 391, 331))
+        self.label_3.setText("")
+        self.label_3.setPixmap(QtGui.QPixmap("Tasarım\\../Resimler/bullet_beyazpng.png"))
+        self.label_3.setObjectName("label_3")
+        self.reset_password = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.reset_password.setGeometry(QtCore.QRect(30, 380, 165, 41))
+        self.reset_password.setMinimumSize(QtCore.QSize(165, 41))
+        self.reset_password.setMaximumSize(QtCore.QSize(155, 41))
         font = QtGui.QFont()
-        font.setFamily("System")
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setWeight(50)
-        self.username.setFont(font)
-        self.username.setStyleSheet("#username {\n"
-"  background-color: #4A4A4A;\n"
+        font.setPointSize(-1)
+        self.reset_password.setFont(font)
+        self.reset_password.setStyleSheet("QPushButton {\n"
+"  \n"
 "  color: #fff;\n"
-"  padding: 5px 10px;\n"
+"  padding: 10px 20px;\n"
 "  border: none;\n"
 "  border-radius: 5px;\n"
+"  font-size: 14px;\n"
+"  letter-spacing: 1px;\n"
+"  transition: background-color 0.2s ease-in-out;\n"
 "}\n"
 "\n"
-"#username:focus {\n"
-"border: 2px solid #fff;\n"
-"  outline: none;\n"
-"}\n"
-"\n"
-"\n"
-"")
-        self.username.setInputMask("")
-        self.username.setObjectName("username")
-        self.horizontalLayout_3.addWidget(self.username)
-        self.verticalLayout.addLayout(self.horizontalLayout_3)
-        self.horizontalLayout_4 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
-        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_4.addItem(spacerItem3)
-        self.password = QtWidgets.QLineEdit(parent=self.layoutWidget)
+"QPushButton:pressed {\n"
+"  color: #a9a9a9;\n"
+"}")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("Tasarım\\../Resimler/refresh.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.reset_password.setIcon(icon)
+        self.reset_password.setFlat(True)
+        self.reset_password.setObjectName("reset_password")
+        self.password = QtWidgets.QLineEdit(parent=self.centralwidget)
+        self.password.setGeometry(QtCore.QRect(93, 305, 245, 43))
         self.password.setMinimumSize(QtCore.QSize(245, 43))
         self.password.setMaximumSize(QtCore.QSize(245, 43))
         font = QtGui.QFont()
@@ -109,39 +89,8 @@ class Ui_MainWindow_login(object):
 "")
         self.password.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         self.password.setObjectName("password")
-        self.horizontalLayout_4.addWidget(self.password)
-        self.verticalLayout.addLayout(self.horizontalLayout_4)
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.reset_password = QtWidgets.QPushButton(parent=self.layoutWidget)
-        self.reset_password.setMinimumSize(QtCore.QSize(165, 41))
-        self.reset_password.setMaximumSize(QtCore.QSize(155, 41))
-        font = QtGui.QFont()
-        font.setPointSize(-1)
-        self.reset_password.setFont(font)
-        self.reset_password.setStyleSheet("QPushButton {\n"
-"  \n"
-"  color: #fff;\n"
-"  padding: 10px 20px;\n"
-"  border: none;\n"
-"  border-radius: 5px;\n"
-"  font-size: 14px;\n"
-"  letter-spacing: 1px;\n"
-"  transition: background-color 0.2s ease-in-out;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"  color: #a9a9a9;\n"
-"}")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("Tasarım\\../Resimler/refresh.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.reset_password.setIcon(icon)
-        self.reset_password.setFlat(True)
-        self.reset_password.setObjectName("reset_password")
-        self.horizontalLayout_2.addWidget(self.reset_password)
-        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_2.addItem(spacerItem4)
-        self.login = QtWidgets.QPushButton(parent=self.layoutWidget)
+        self.login = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.login.setGeometry(QtCore.QRect(237, 380, 101, 41))
         self.login.setMinimumSize(QtCore.QSize(101, 41))
         self.login.setMaximumSize(QtCore.QSize(101, 41))
         font = QtGui.QFont()
@@ -168,21 +117,55 @@ class Ui_MainWindow_login(object):
 "}\n"
 "")
         self.login.setObjectName("login")
-        self.horizontalLayout_2.addWidget(self.login)
-        self.verticalLayout.addLayout(self.horizontalLayout_2)
-        self.label_2 = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(150, -150, 641, 561))
-        self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap("Tasarım\\../Resimler/smoke_beyaz.png"))
-        self.label_2.setObjectName("label_2")
-        self.label_3 = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(-310, 330, 391, 331))
-        self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap("Tasarım\\../Resimler/bullet_beyazpng.png"))
-        self.label_3.setObjectName("label_3")
-        self.label_2.raise_()
-        self.layoutWidget.raise_()
-        self.label_3.raise_()
+        self.eye_password = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.eye_password.setGeometry(QtCore.QRect(297, 313, 30, 30))
+        self.eye_password.setMinimumSize(QtCore.QSize(30, 30))
+        self.eye_password.setMaximumSize(QtCore.QSize(30, 30))
+        self.eye_password.setMouseTracking(True)
+        self.eye_password.setStyleSheet("QPushButton:pressed { background-color: transparent; }\n"
+"")
+        self.eye_password.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("Tasarım\\../Resimler/view.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.eye_password.setIcon(icon1)
+        self.eye_password.setIconSize(QtCore.QSize(30, 30))
+        self.eye_password.setShortcut("")
+        self.eye_password.setFlat(True)
+        self.eye_password.setObjectName("eye_password")
+        self.label = QtWidgets.QLabel(parent=self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(90, 10, 188, 188))
+        self.label.setMinimumSize(QtCore.QSize(188, 188))
+        self.label.setMaximumSize(QtCore.QSize(188, 188))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap("Tasarım\\../Resimler/lock_beyaz.png"))
+        self.label.setObjectName("label")
+        self.username = QtWidgets.QLineEdit(parent=self.centralwidget)
+        self.username.setGeometry(QtCore.QRect(93, 230, 245, 43))
+        self.username.setMinimumSize(QtCore.QSize(245, 43))
+        self.username.setMaximumSize(QtCore.QSize(245, 43))
+        font = QtGui.QFont()
+        font.setFamily("System")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.username.setFont(font)
+        self.username.setStyleSheet("#username {\n"
+"  background-color: #4A4A4A;\n"
+"  color: #fff;\n"
+"  padding: 5px 10px;\n"
+"  border: none;\n"
+"  border-radius: 5px;\n"
+"}\n"
+"\n"
+"#username:focus {\n"
+"border: 2px solid #fff;\n"
+"  outline: none;\n"
+"}\n"
+"\n"
+"\n"
+"")
+        self.username.setInputMask("")
+        self.username.setObjectName("username")
         MainWindow_login.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow_login)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 396, 21))
@@ -194,11 +177,15 @@ class Ui_MainWindow_login(object):
 
         self.retranslateUi(MainWindow_login)
         QtCore.QMetaObject.connectSlotsByName(MainWindow_login)
+        MainWindow_login.setTabOrder(self.username, self.password)
+        MainWindow_login.setTabOrder(self.password, self.login)
+        MainWindow_login.setTabOrder(self.login, self.reset_password)
+        MainWindow_login.setTabOrder(self.reset_password, self.eye_password)
 
     def retranslateUi(self, MainWindow_login):
         _translate = QtCore.QCoreApplication.translate
         MainWindow_login.setWindowTitle(_translate("MainWindow_login", "MainWindow"))
-        self.username.setPlaceholderText(_translate("MainWindow_login", "Username"))
-        self.password.setPlaceholderText(_translate("MainWindow_login", "Password"))
         self.reset_password.setText(_translate("MainWindow_login", "Reset Password"))
+        self.password.setPlaceholderText(_translate("MainWindow_login", "Password"))
         self.login.setText(_translate("MainWindow_login", "Login"))
+        self.username.setPlaceholderText(_translate("MainWindow_login", "Username"))

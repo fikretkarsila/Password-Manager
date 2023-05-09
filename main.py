@@ -12,9 +12,9 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow_main(object):
     def setupUi(self, MainWindow_main):
         MainWindow_main.setObjectName("MainWindow_main")
-        MainWindow_main.resize(1112, 695)
-        MainWindow_main.setMinimumSize(QtCore.QSize(1112, 695))
-        MainWindow_main.setMaximumSize(QtCore.QSize(1112, 695))
+        MainWindow_main.resize(1200, 800)
+        MainWindow_main.setMinimumSize(QtCore.QSize(1200, 800))
+        MainWindow_main.setMaximumSize(QtCore.QSize(1200, 800))
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow_main)
         self.centralwidget.setStyleSheet("#centralwidget{\n"
 "background: #2d2d2d;\n"
@@ -24,14 +24,14 @@ class Ui_MainWindow_main(object):
 "}\n"
 "")
         self.centralwidget.setObjectName("centralwidget")
-        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.centralwidget)
-        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
         self.horizontalLayout_11 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_11.setContentsMargins(5, 5, 5, 5)
+        self.horizontalLayout_11.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_11.setSpacing(5)
         self.horizontalLayout_11.setObjectName("horizontalLayout_11")
         self.groupBox_4 = QtWidgets.QGroupBox(parent=self.centralwidget)
-        self.groupBox_4.setMinimumSize(QtCore.QSize(337, 626))
+        self.groupBox_4.setMinimumSize(QtCore.QSize(0, 0))
         self.groupBox_4.setStyleSheet("QGroupBox {\n"
 "   color:#fff;\n"
 "   font: 11pt;\n"
@@ -46,8 +46,8 @@ class Ui_MainWindow_main(object):
         self.verticalLayout_10.setSpacing(0)
         self.verticalLayout_10.setObjectName("verticalLayout_10")
         self.verticalLayout_11 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_11.setContentsMargins(5, 5, 5, 5)
-        self.verticalLayout_11.setSpacing(5)
+        self.verticalLayout_11.setContentsMargins(7, 7, 7, 7)
+        self.verticalLayout_11.setSpacing(7)
         self.verticalLayout_11.setObjectName("verticalLayout_11")
         self.horizontalLayout_20 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_20.setObjectName("horizontalLayout_20")
@@ -252,6 +252,88 @@ class Ui_MainWindow_main(object):
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setSpacing(15)
         self.horizontalLayout.setObjectName("horizontalLayout")
+        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.horizontalLayout_16 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_16.setContentsMargins(5, 5, 5, 5)
+        self.horizontalLayout_16.setSpacing(6)
+        self.horizontalLayout_16.setObjectName("horizontalLayout_16")
+        self.groupBox_5 = QtWidgets.QGroupBox(parent=self.centralwidget)
+        self.groupBox_5.setMinimumSize(QtCore.QSize(0, 80))
+        self.groupBox_5.setMaximumSize(QtCore.QSize(16777215, 80))
+        self.groupBox_5.setSizeIncrement(QtCore.QSize(0, 0))
+        self.groupBox_5.setStyleSheet("QGroupBox {\n"
+"   color:#fff;\n"
+"   font: 11pt;\n"
+"   border-radius: 10px;\n"
+"   border: 2px solid #fff;\n"
+"}\n"
+"")
+        self.groupBox_5.setObjectName("groupBox_5")
+        self.horizontalLayout_23 = QtWidgets.QHBoxLayout(self.groupBox_5)
+        self.horizontalLayout_23.setContentsMargins(5, 5, 5, 5)
+        self.horizontalLayout_23.setSpacing(5)
+        self.horizontalLayout_23.setObjectName("horizontalLayout_23")
+        self.horizontalLayout_24 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_24.setContentsMargins(5, 10, 5, 0)
+        self.horizontalLayout_24.setSpacing(5)
+        self.horizontalLayout_24.setObjectName("horizontalLayout_24")
+        self.id_del = QtWidgets.QLineEdit(parent=self.groupBox_5)
+        self.id_del.setMinimumSize(QtCore.QSize(230, 40))
+        self.id_del.setMaximumSize(QtCore.QSize(200, 40))
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        self.id_del.setFont(font)
+        self.id_del.setStyleSheet("#id_del {\n"
+"  background-color: #4A4A4A;\n"
+"  color: #fff;\n"
+"  padding: 5px 10px;\n"
+"  border: none;\n"
+"  border-radius: 5px;\n"
+"font-size: 14px;\n"
+"}\n"
+"\n"
+"#id_del:focus {\n"
+"border: 2px solid #fff;\n"
+"  outline: none;\n"
+"}\n"
+"\n"
+"\n"
+"")
+        self.id_del.setInputMask("")
+        self.id_del.setObjectName("id_del")
+        self.horizontalLayout_24.addWidget(self.id_del)
+        spacerItem9 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_24.addItem(spacerItem9)
+        self.data_delete = QtWidgets.QPushButton(parent=self.groupBox_5)
+        self.data_delete.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.data_delete.setStyleSheet("QPushButton {\n"
+"  background-color: #4A4A4A;\n"
+"  color: #fff;\n"
+"  padding: 10px 20px;\n"
+"  border: none;\n"
+"  border-radius: 5px;\n"
+"  font-size: 14px;\n"
+"\n"
+"  letter-spacing: 1px;\n"
+"  transition: background-color 0.2s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"  background-color: #666;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"  background-color: #333;\n"
+"}\n"
+"")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("Tasarım\\../Resimler/trash_beyaz.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.data_delete.setIcon(icon4)
+        self.data_delete.setIconSize(QtCore.QSize(22, 22))
+        self.data_delete.setObjectName("data_delete")
+        self.horizontalLayout_24.addWidget(self.data_delete)
+        self.horizontalLayout_23.addLayout(self.horizontalLayout_24)
+        self.horizontalLayout_16.addWidget(self.groupBox_5)
         self.groupBox_3 = QtWidgets.QGroupBox(parent=self.centralwidget)
         self.groupBox_3.setMinimumSize(QtCore.QSize(0, 80))
         self.groupBox_3.setMaximumSize(QtCore.QSize(16777215, 80))
@@ -264,19 +346,21 @@ class Ui_MainWindow_main(object):
 "}\n"
 "")
         self.groupBox_3.setObjectName("groupBox_3")
-        self.horizontalLayout_16 = QtWidgets.QHBoxLayout(self.groupBox_3)
-        self.horizontalLayout_16.setContentsMargins(10, 10, 10, 10)
-        self.horizontalLayout_16.setSpacing(10)
-        self.horizontalLayout_16.setObjectName("horizontalLayout_16")
-        self.horizontalLayout_17 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_17 = QtWidgets.QHBoxLayout(self.groupBox_3)
+        self.horizontalLayout_17.setContentsMargins(5, 5, 5, 5)
+        self.horizontalLayout_17.setSpacing(5)
         self.horizontalLayout_17.setObjectName("horizontalLayout_17")
-        self.id_search = QtWidgets.QLineEdit(parent=self.groupBox_3)
-        self.id_search.setMinimumSize(QtCore.QSize(230, 40))
-        self.id_search.setMaximumSize(QtCore.QSize(200, 40))
+        self.horizontalLayout_35 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_35.setContentsMargins(5, 5, 5, 0)
+        self.horizontalLayout_35.setSpacing(5)
+        self.horizontalLayout_35.setObjectName("horizontalLayout_35")
+        self.username_search = QtWidgets.QLineEdit(parent=self.groupBox_3)
+        self.username_search.setMinimumSize(QtCore.QSize(230, 40))
+        self.username_search.setMaximumSize(QtCore.QSize(200, 40))
         font = QtGui.QFont()
         font.setPointSize(-1)
-        self.id_search.setFont(font)
-        self.id_search.setStyleSheet("#id_search {\n"
+        self.username_search.setFont(font)
+        self.username_search.setStyleSheet("#username_search {\n"
 "  background-color: #4A4A4A;\n"
 "  color: #fff;\n"
 "  padding: 5px 10px;\n"
@@ -285,18 +369,18 @@ class Ui_MainWindow_main(object):
 "font-size: 14px;\n"
 "}\n"
 "\n"
-"#id_search:focus {\n"
+"#username_search:focus {\n"
 "border: 2px solid #fff;\n"
 "  outline: none;\n"
 "}\n"
 "\n"
 "\n"
 "")
-        self.id_search.setInputMask("")
-        self.id_search.setObjectName("id_search")
-        self.horizontalLayout_17.addWidget(self.id_search)
-        spacerItem9 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_17.addItem(spacerItem9)
+        self.username_search.setInputMask("")
+        self.username_search.setObjectName("username_search")
+        self.horizontalLayout_35.addWidget(self.username_search)
+        spacerItem10 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_35.addItem(spacerItem10)
         self.search = QtWidgets.QPushButton(parent=self.groupBox_3)
         self.search.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.search.setStyleSheet("QPushButton {\n"
@@ -319,15 +403,15 @@ class Ui_MainWindow_main(object):
 "  background-color: #333;\n"
 "}\n"
 "")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("Tasarım\\../Resimler/magnifier_beyaz.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.search.setIcon(icon4)
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap("Tasarım\\../Resimler/magnifier_beyaz.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.search.setIcon(icon5)
         self.search.setIconSize(QtCore.QSize(22, 22))
         self.search.setObjectName("search")
-        self.horizontalLayout_17.addWidget(self.search)
-        self.horizontalLayout_16.addLayout(self.horizontalLayout_17)
-        self.horizontalLayout.addWidget(self.groupBox_3)
-        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.horizontalLayout_35.addWidget(self.search)
+        self.horizontalLayout_17.addLayout(self.horizontalLayout_35)
+        self.horizontalLayout_16.addWidget(self.groupBox_3)
+        self.verticalLayout.addLayout(self.horizontalLayout_16)
         self.girdiler = QtWidgets.QTableWidget(parent=self.centralwidget)
         self.girdiler.setMinimumSize(QtCore.QSize(650, 0))
         self.girdiler.setMaximumSize(QtCore.QSize(16777215, 16777215))
@@ -336,7 +420,7 @@ class Ui_MainWindow_main(object):
 "  border: none;\n"
 "  font-size: 14px;\n"
 "  font-weight: normal;\n"
-"  color: #333;\n"
+"  color: #fff;\n"
 "  border-radius: 10px;\n"
 "  border: 7px solid #fff;\n"
 "}\n"
@@ -431,8 +515,8 @@ class Ui_MainWindow_main(object):
         self.website_new.setInputMask("")
         self.website_new.setObjectName("website_new")
         self.horizontalLayout_6.addWidget(self.website_new)
-        spacerItem10 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_6.addItem(spacerItem10)
+        spacerItem11 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_6.addItem(spacerItem11)
         self.verticalLayout_4.addLayout(self.horizontalLayout_6)
         self.horizontalLayout_7 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_7.setObjectName("horizontalLayout_7")
@@ -461,8 +545,8 @@ class Ui_MainWindow_main(object):
         self.username_new.setInputMask("")
         self.username_new.setObjectName("username_new")
         self.horizontalLayout_7.addWidget(self.username_new)
-        spacerItem11 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_7.addItem(spacerItem11)
+        spacerItem12 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_7.addItem(spacerItem12)
         self.verticalLayout_4.addLayout(self.horizontalLayout_7)
         self.horizontalLayout_8 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_8.setObjectName("horizontalLayout_8")
@@ -544,13 +628,13 @@ class Ui_MainWindow_main(object):
         self.password_repeat_new.setInputMask("")
         self.password_repeat_new.setObjectName("password_repeat_new")
         self.horizontalLayout_9.addWidget(self.password_repeat_new)
-        spacerItem12 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_9.addItem(spacerItem12)
+        spacerItem13 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_9.addItem(spacerItem13)
         self.verticalLayout_4.addLayout(self.horizontalLayout_9)
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
-        spacerItem13 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_5.addItem(spacerItem13)
+        spacerItem14 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_5.addItem(spacerItem14)
         self.save_new = QtWidgets.QPushButton(parent=self.groupBox)
         self.save_new.setMinimumSize(QtCore.QSize(0, 0))
         self.save_new.setMaximumSize(QtCore.QSize(16777215, 16777215))
@@ -576,13 +660,13 @@ class Ui_MainWindow_main(object):
 "")
         self.save_new.setObjectName("save_new")
         self.horizontalLayout_5.addWidget(self.save_new)
-        spacerItem14 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_5.addItem(spacerItem14)
+        spacerItem15 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_5.addItem(spacerItem15)
         self.verticalLayout_4.addLayout(self.horizontalLayout_5)
         self.verticalLayout_8.addLayout(self.verticalLayout_4)
         self.horizontalLayout_10.addWidget(self.groupBox)
         self.groupBox_2 = QtWidgets.QGroupBox(parent=self.centralwidget)
-        self.groupBox_2.setMinimumSize(QtCore.QSize(353, 311))
+        self.groupBox_2.setMinimumSize(QtCore.QSize(360, 311))
         self.groupBox_2.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.groupBox_2.setStyleSheet("QGroupBox {\n"
 "   color:#fff;\n"
@@ -627,8 +711,8 @@ class Ui_MainWindow_main(object):
         self.id_edit.setInputMask("")
         self.id_edit.setObjectName("id_edit")
         self.horizontalLayout_3.addWidget(self.id_edit)
-        spacerItem15 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_3.addItem(spacerItem15)
+        spacerItem16 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_3.addItem(spacerItem16)
         self.verticalLayout_3.addLayout(self.horizontalLayout_3)
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
@@ -657,8 +741,8 @@ class Ui_MainWindow_main(object):
         self.website_edit.setInputMask("")
         self.website_edit.setObjectName("website_edit")
         self.horizontalLayout_4.addWidget(self.website_edit)
-        spacerItem16 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_4.addItem(spacerItem16)
+        spacerItem17 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_4.addItem(spacerItem17)
         self.verticalLayout_3.addLayout(self.horizontalLayout_4)
         self.horizontalLayout_12 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_12.setObjectName("horizontalLayout_12")
@@ -687,8 +771,8 @@ class Ui_MainWindow_main(object):
         self.username_edit.setInputMask("")
         self.username_edit.setObjectName("username_edit")
         self.horizontalLayout_12.addWidget(self.username_edit)
-        spacerItem17 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_12.addItem(spacerItem17)
+        spacerItem18 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_12.addItem(spacerItem18)
         self.verticalLayout_3.addLayout(self.horizontalLayout_12)
         self.horizontalLayout_13 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_13.setObjectName("horizontalLayout_13")
@@ -718,7 +802,7 @@ class Ui_MainWindow_main(object):
         self.password_edit.setObjectName("password_edit")
         self.horizontalLayout_13.addWidget(self.password_edit)
         self.generate_password_edit = QtWidgets.QPushButton(parent=self.groupBox_2)
-        self.generate_password_edit.setMinimumSize(QtCore.QSize(91, 48))
+        self.generate_password_edit.setMinimumSize(QtCore.QSize(100, 50))
         self.generate_password_edit.setMaximumSize(QtCore.QSize(16777215, 40))
         self.generate_password_edit.setStyleSheet("QPushButton {\n"
 "  background-color: #4A4A4A;\n"
@@ -770,13 +854,13 @@ class Ui_MainWindow_main(object):
         self.password_repeat_edit.setInputMask("")
         self.password_repeat_edit.setObjectName("password_repeat_edit")
         self.horizontalLayout_14.addWidget(self.password_repeat_edit)
-        spacerItem18 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_14.addItem(spacerItem18)
+        spacerItem19 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_14.addItem(spacerItem19)
         self.verticalLayout_3.addLayout(self.horizontalLayout_14)
         self.horizontalLayout_15 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_15.setObjectName("horizontalLayout_15")
-        spacerItem19 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_15.addItem(spacerItem19)
+        spacerItem20 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_15.addItem(spacerItem20)
         self.save_change = QtWidgets.QPushButton(parent=self.groupBox_2)
         self.save_change.setMinimumSize(QtCore.QSize(0, 0))
         self.save_change.setMaximumSize(QtCore.QSize(16777215, 16777215))
@@ -805,17 +889,17 @@ class Ui_MainWindow_main(object):
 "")
         self.save_change.setObjectName("save_change")
         self.horizontalLayout_15.addWidget(self.save_change)
-        spacerItem20 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_15.addItem(spacerItem20)
+        spacerItem21 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_15.addItem(spacerItem21)
         self.verticalLayout_3.addLayout(self.horizontalLayout_15)
         self.verticalLayout_2.addLayout(self.verticalLayout_3)
         self.horizontalLayout_10.addWidget(self.groupBox_2)
         self.verticalLayout_6.addLayout(self.horizontalLayout_10)
         self.horizontalLayout_11.addLayout(self.verticalLayout_6)
-        self.verticalLayout_7.addLayout(self.horizontalLayout_11)
+        self.verticalLayout_5.addLayout(self.horizontalLayout_11)
         MainWindow_main.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow_main)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1112, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1200, 21))
         self.menubar.setObjectName("menubar")
         MainWindow_main.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow_main)
@@ -824,6 +908,28 @@ class Ui_MainWindow_main(object):
 
         self.retranslateUi(MainWindow_main)
         QtCore.QMetaObject.connectSlotsByName(MainWindow_main)
+        MainWindow_main.setTabOrder(self.all_show, self.user_settings)
+        MainWindow_main.setTabOrder(self.user_settings, self.change_user)
+        MainWindow_main.setTabOrder(self.change_user, self.about)
+        MainWindow_main.setTabOrder(self.about, self.id_del)
+        MainWindow_main.setTabOrder(self.id_del, self.data_delete)
+        MainWindow_main.setTabOrder(self.data_delete, self.username_search)
+        MainWindow_main.setTabOrder(self.username_search, self.search)
+        MainWindow_main.setTabOrder(self.search, self.girdiler)
+        MainWindow_main.setTabOrder(self.girdiler, self.website_new)
+        MainWindow_main.setTabOrder(self.website_new, self.username_new)
+        MainWindow_main.setTabOrder(self.username_new, self.password_new)
+        MainWindow_main.setTabOrder(self.password_new, self.generate_password_new)
+        MainWindow_main.setTabOrder(self.generate_password_new, self.password_repeat_new)
+        MainWindow_main.setTabOrder(self.password_repeat_new, self.save_new)
+        MainWindow_main.setTabOrder(self.save_new, self.id_edit)
+        MainWindow_main.setTabOrder(self.id_edit, self.website_edit)
+        MainWindow_main.setTabOrder(self.website_edit, self.username_edit)
+        MainWindow_main.setTabOrder(self.username_edit, self.password_edit)
+        MainWindow_main.setTabOrder(self.password_edit, self.password_repeat_edit)
+        MainWindow_main.setTabOrder(self.password_repeat_edit, self.generate_password_edit)
+        MainWindow_main.setTabOrder(self.generate_password_edit, self.save_change)
+        MainWindow_main.setTabOrder(self.save_change, self.database_control)
 
     def retranslateUi(self, MainWindow_main):
         _translate = QtCore.QCoreApplication.translate
@@ -834,8 +940,11 @@ class Ui_MainWindow_main(object):
         self.user_settings.setText(_translate("MainWindow_main", "User Settings"))
         self.change_user.setText(_translate("MainWindow_main", "Change User"))
         self.about.setText(_translate("MainWindow_main", "About"))
+        self.groupBox_5.setTitle(_translate("MainWindow_main", "Deletion Location"))
+        self.id_del.setPlaceholderText(_translate("MainWindow_main", "Enter ID"))
+        self.data_delete.setText(_translate("MainWindow_main", "Delete"))
         self.groupBox_3.setTitle(_translate("MainWindow_main", "Search Location"))
-        self.id_search.setPlaceholderText(_translate("MainWindow_main", "ID Write"))
+        self.username_search.setPlaceholderText(_translate("MainWindow_main", "Enter Username"))
         self.search.setText(_translate("MainWindow_main", "Search"))
         item = self.girdiler.verticalHeaderItem(0)
         item.setText(_translate("MainWindow_main", "1"))
