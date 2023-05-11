@@ -60,6 +60,7 @@ class Ui_MainWindow_login(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("Tasarım\\../Resimler/refresh.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.reset_password.setIcon(icon)
+        self.reset_password.setIconSize(QtCore.QSize(20, 16))
         self.reset_password.setFlat(True)
         self.reset_password.setObjectName("reset_password")
         self.password = QtWidgets.QLineEdit(parent=self.centralwidget)
@@ -166,6 +167,43 @@ class Ui_MainWindow_login(object):
 "")
         self.username.setInputMask("")
         self.username.setObjectName("username")
+        self.widget = QtWidgets.QWidget(parent=self.centralwidget)
+        self.widget.setGeometry(QtCore.QRect(0, 430, 391, 43))
+        self.widget.setObjectName("widget")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.widget)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout.addItem(spacerItem)
+        self.create_account = QtWidgets.QPushButton(parent=self.widget)
+        self.create_account.setMinimumSize(QtCore.QSize(165, 41))
+        self.create_account.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        self.create_account.setFont(font)
+        self.create_account.setStyleSheet("QPushButton {\n"
+"  \n"
+"  color: #fff;\n"
+"  padding: 10px 20px;\n"
+"  border: none;\n"
+"  border-radius: 5px;\n"
+"  font-size: 14px;\n"
+"  letter-spacing: 1px;\n"
+"  transition: background-color 0.2s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"  color: #a9a9a9;\n"
+"}")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("Tasarım\\../Resimler/user_beyaz.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.create_account.setIcon(icon2)
+        self.create_account.setIconSize(QtCore.QSize(16, 16))
+        self.create_account.setFlat(True)
+        self.create_account.setObjectName("create_account")
+        self.horizontalLayout.addWidget(self.create_account)
+        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout.addItem(spacerItem1)
         MainWindow_login.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow_login)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 396, 21))
@@ -189,3 +227,4 @@ class Ui_MainWindow_login(object):
         self.password.setPlaceholderText(_translate("MainWindow_login", "Password"))
         self.login.setText(_translate("MainWindow_login", "Login"))
         self.username.setPlaceholderText(_translate("MainWindow_login", "Username"))
+        self.create_account.setText(_translate("MainWindow_login", "Don\'t have an account ?"))

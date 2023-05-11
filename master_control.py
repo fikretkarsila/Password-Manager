@@ -14,6 +14,7 @@ from login_panel import Ui_MainWindow_login
 from reset_password import Ui_MainWindow_reset_password
 from main import Ui_MainWindow_main
 from about import Ui_MainWindow_about
+from creat_account import Ui_MainWindow_create
 
 def kosul_kutusu(Title,Contents,Signal,Picture_Path):
     message = QMessageBox()
@@ -65,11 +66,125 @@ try:
             self.login.login.clicked.connect(self.login_entrance)
             self.login.reset_password.clicked.connect(self.login_reset)
             self.login.eye_password.clicked.connect(self.view_hide)
+            self.login.create_account.clicked.connect(self.create_account)
 
             self.login.login.setShortcut('Return')
 
-            self.login_connectDb()
+            self.login_connectDb_password()
             self.change = True
+
+        def create_account(self):
+
+            self.change = True
+
+            def save():
+
+                try:
+
+                    username = create.username.text().strip()
+                    password = create.password.text().strip()
+                    password_again = create.password_again.text().strip()
+
+                    if len(username) == 0 or len(password) == 0 or len(password_again) == 0:
+                        raise SyntaxError(mesaj_kutusu("Info", "Fill in all fields.", QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+                    elif password != password_again:
+                        raise SyntaxError(mesaj_kutusu("Info", "Passwords do not match.", QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+
+                    self.cursor.execute("SELECT username FROM login_password")
+                    users,control = self.cursor.fetchall(),False
+
+                    print(username)
+
+                    for user in users:
+                        if user[0] == username:
+                            control = True
+                            break
+
+                    if control:
+                        raise SyntaxError(mesaj_kutusu("Info", "There is already such a user.", QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+                    else:
+
+                        self.cursor.execute("INSERT INTO login_password(username,password) VALUES (%s,%s)",(username,password))
+                        self.connect.commit()
+
+                        for widget in self.findChildren(QLineEdit):
+                            widget.clear()
+
+                        mesaj_kutusu("Info", f"Your registration has been successfully created. Please make a note of your username and password.\n\nUsername :  {username}\nPassword : {password}", QMessageBox.Icon.Information,"Resimler/information-button_beyaz.png")
+
+                        self.main_create.close()
+                        self.show()
+
+                except Exception as ex:
+                    print(ex)
+
+            def generate_password():
+
+                def uret():
+
+                    passwords,sifre,character,random_key = [],'',"abcdefghklmnopqrstuvwxyzABCGHKLMNOPQRSTUVWXYZ1234567890!#$&",randint(10,16)
+
+                    for x in range(10):
+
+                        for y in range(random_key):
+                            sifre += choice(character)
+
+                        passwords.append(sifre)
+                        sifre = ''
+
+                    for x in range(10):
+
+                        sifre = choice(passwords)
+
+                        create.password.setText(sifre)
+                        create.password_again.setText(sifre)
+
+                        time.sleep(0.01)
+
+                threading_1 = Thread(target=uret)
+                threading_1.start()
+
+            def back_frost():
+                try:
+
+                    for widget in self.findChildren(QLineEdit):
+                        widget.clear()
+
+                    self.main_create.close()
+                    self.show()
+
+                except Exception as ex:
+                    print(ex)
+
+            def view_hide():
+
+                if self.change:
+                    create.password.setEchoMode(QLineEdit.EchoMode.Normal)
+                    create.password_again.setEchoMode(QLineEdit.EchoMode.Normal)
+                    create.eye_password.setIcon(QIcon("Resimler/hide.png"))
+                    self.change = False
+                else:
+                    create.password.setEchoMode(QLineEdit.EchoMode.Password)
+                    create.password_again.setEchoMode(QLineEdit.EchoMode.Password)
+                    create.eye_password.setIcon(QIcon("Resimler/view.png"))
+                    self.change = True
+
+            self.close()
+
+            self.main_create = QMainWindow()
+            create = Ui_MainWindow_create()
+            create.setupUi(self.main_create)
+
+            create.back_frost.clicked.connect(back_frost)
+            create.generate_password.clicked.connect(generate_password)
+            create.eye_password.clicked.connect(view_hide)
+            create.create_register.clicked.connect(save)
+
+            self.main_create.setWindowTitle('New Account')
+            self.main_create.setWindowIcon(QIcon('Resimler/user_beyaz.png'))
+
+
+            self.main_create.show()
 
         def view_hide(self):
 
@@ -126,6 +241,9 @@ try:
                     if window == 'login':
                         self.show()
                     else:
+
+                        self.main(username_K).connection()
+
                         self.main_window.show()
 
                 except Exception as ex:
@@ -166,6 +284,9 @@ try:
                             if window == 'login':
                                 self.show()
                             else:
+
+                                self.main(username_K).connection()
+
                                 self.main_window.show()
                         else:
                             mesaj_kutusu("Info", "Passwords do not match.", QMessageBox.Icon.Warning,
@@ -210,16 +331,53 @@ try:
                 login_main.username.setEnabled(False)
 
             self.login_window.show()
-        def login_connectDb(self):
+        def login_connectDb_password(self):
 
-            self.connect = mysql.connector.connect(
-                host='localhost',
-                user='root',
-                password='n3D2uMF3',
-                database='password_managerdb'
-            )
+            try:
+                self.connect = mysql.connector.connect(
+                    host='localhost',
+                    user='root',
+                    password='n3D2uMF3',
+                    database='password_manager'
+                )
 
-            self.cursor = self.connect.cursor()
+                self.cursor = self.connect.cursor()
+
+            except:
+
+                self.connect = mysql.connector.connect(
+                    host='localhost',
+                    user='root',
+                    password='n3D2uMF3'
+                )
+
+                self.cursor = self.connect.cursor()
+
+                self.cursor.execute("CREATE SCHEMA IF NOT EXISTS password_manager")
+
+                self.connect.close()
+
+                self.connect = mysql.connector.connect(
+                    host='localhost',
+                    user='root',
+                    password='n3D2uMF3',
+                    database='password_manager'
+                )
+
+                self.cursor = self.connect.cursor()
+
+
+            self.cursor.execute("""CREATE TABLE IF NOT EXISTS `login_password` (
+                                  `id` int NOT NULL AUTO_INCREMENT,
+                                  `username` varchar(200) NOT NULL,
+                                  `password` varchar(200) NOT NULL,
+                                  PRIMARY KEY (`id`),
+                                  UNIQUE KEY `id_UNIQUE` (`id`),
+                                  UNIQUE KEY `username_UNIQUE` (`username`)
+                                ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+                                """)
+
+            self.connect.commit()
         def login_entrance(self): # Yanlış yapıldı düzeltilecek
 
             try:
@@ -471,7 +629,9 @@ try:
             def user_settings():
 
                 self.main_window.close()
+                self.connect.close()
 
+                self.login_connectDb_password()
                 self.login_reset('main',username_K)
 
             def login_go():
@@ -491,6 +651,9 @@ try:
 
                 self.main_window.close()
 
+                self.connect.close()
+
+                self.login_connectDb_password()
                 self.show()
 
             def about_func():
@@ -527,23 +690,67 @@ try:
             def connection():
 
                 try:
+
                     time.sleep(1.5)
 
-                    self.connect = mysql.connector.connect(
-                        host = 'localhost',
-                        user = 'root',
-                        password = 'n3D2uMF3',
-                        database = 'password_managerdb'
-                    )
+                    try:
 
-                    self.cursor = self.connect.cursor()
+                        self.connect = mysql.connector.connect(
+                            host = 'localhost',
+                            user = 'root',
+                            password = 'n3D2uMF3',
+                            database = f'password_managerdb_{username_K}'
+                        )
 
-                    main.database_control.setStyleSheet("""
-                            border-radius: 25px;
-                            background-color: green;
-                            color: white;
-                            width: 50px;
-                            height: 50px; """)
+                        self.cursor = self.connect.cursor()
+
+                    except:
+
+                        self.connect = mysql.connector.connect(
+                            host='localhost',
+                            user='root',
+                            password='n3D2uMF3'
+                        )
+
+                        self.cursor = self.connect.cursor()
+                        self.cursor.execute(f"CREATE SCHEMA IF NOT EXISTS password_manager_{username_K}")
+                        self.connect.commit()
+
+                        self.connect.close()
+
+                        self.connect = mysql.connector.connect(
+                            host='localhost',
+                            user='root',
+                            password='n3D2uMF3',
+                            database=f'password_manager_{username_K}'
+                        )
+
+                        self.cursor = self.connect.cursor()
+
+                        self.cursor.execute("""CREATE TABLE IF NOT EXISTS `username_data` (
+                                               `username_id` int NOT NULL AUTO_INCREMENT,
+                                               `username` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                                               PRIMARY KEY (`username_id`)
+                                               ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci""")
+
+                        self.cursor.execute("""CREATE TABLE IF NOT EXISTS `user_data` (
+                                               `id` int NOT NULL AUTO_INCREMENT,
+                                               `website_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                                               `username_id` int NOT NULL,
+                                               `password` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                                               PRIMARY KEY (`id`),
+                                               UNIQUE KEY `id_UNIQUE` (`id`),
+                                               KEY `username_id_idx` (`username_id`),
+                                               CONSTRAINT `username_id` FOREIGN KEY (`username_id`) REFERENCES `username_data` (`username_id`)
+                                               ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci""")
+
+                        self.connect.commit()
+
+                    main.database_control.setStyleSheet("""border-radius: 25px;
+                                                           background-color: green;
+                                                           color: white;
+                                                           width: 50px;
+                                                           height: 50px; """)
 
                     main.label_control.setText("Database Connected")
 
