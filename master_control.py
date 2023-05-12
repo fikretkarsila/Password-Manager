@@ -4,7 +4,7 @@ from random import choice
 from threading import Thread
 from random import randint
 import mysql.connector #Veritabanı bağlantı
-#from mysql.connector.locales.eng import client_error
+from mysql.connector.locales.eng import client_error
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QMainWindow,QApplication,QMessageBox,QLineEdit,QTableWidgetItem
@@ -62,7 +62,6 @@ try:
 
             self.setWindowTitle("LogIn")
             self.setWindowIcon(QIcon("Resimler/login_siyah.png"))
-
 
             self.login.login.clicked.connect(self.login_entrance)
             self.login.reset_password.clicked.connect(self.login_reset)
@@ -183,7 +182,6 @@ try:
 
             self.main_create.setWindowTitle('New Account')
             self.main_create.setWindowIcon(QIcon('Resimler/user_beyaz.png'))
-
 
             self.main_create.show()
 
@@ -338,8 +336,9 @@ try:
                 self.connect = mysql.connector.connect(
                     host='localhost',
                     user='root',
-                    password='n3D2uMF3',
-                    database='password_manager'
+                    passwd='2023',
+                    database='password_manager',
+                    auth_plugin='mysql_native_password'
                 )
 
                 self.cursor = self.connect.cursor()
@@ -349,7 +348,8 @@ try:
                 self.connect = mysql.connector.connect(
                     host='localhost',
                     user='root',
-                    password='n3D2uMF3'
+                    password='2023',
+                    auth_plugin='mysql_native_password'
                 )
 
                 self.cursor = self.connect.cursor()
@@ -361,8 +361,9 @@ try:
                 self.connect = mysql.connector.connect(
                     host='localhost',
                     user='root',
-                    password='n3D2uMF3',
-                    database='password_manager'
+                    password='2023',
+                    database='password_manager',
+                    auth_plugin='mysql_native_password'
                 )
 
                 self.cursor = self.connect.cursor()
@@ -699,8 +700,9 @@ try:
                         self.connect = mysql.connector.connect(
                             host = 'localhost',
                             user = 'root',
-                            password = 'n3D2uMF3',
-                            database = f'password_managerdb_{username_K}'
+                            password = '2023',
+                            database = f'password_managerdb_{username_K}',
+                            auth_plugin='mysql_native_password'
                         )
 
                         self.cursor = self.connect.cursor()
@@ -710,7 +712,8 @@ try:
                         self.connect = mysql.connector.connect(
                             host='localhost',
                             user='root',
-                            password='n3D2uMF3'
+                            password='2023',
+                            auth_plugin='mysql_native_password'
                         )
 
                         self.cursor = self.connect.cursor()
@@ -722,8 +725,9 @@ try:
                         self.connect = mysql.connector.connect(
                             host='localhost',
                             user='root',
-                            password='n3D2uMF3',
-                            database=f'password_manager_{username_K}'
+                            password='2023',
+                            database=f'password_manager_{username_K}',
+                            auth_plugin='mysql_native_password'
                         )
 
                         self.cursor = self.connect.cursor()
