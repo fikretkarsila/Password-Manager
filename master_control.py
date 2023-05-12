@@ -4,6 +4,7 @@ from random import choice
 from threading import Thread
 from random import randint
 import mysql.connector #Veritabanı bağlantı
+#from mysql.connector.locales.eng import client_error
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QMainWindow,QApplication,QMessageBox,QLineEdit,QTableWidgetItem
