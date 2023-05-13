@@ -5,17 +5,86 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91bcd36c-293b-49cd-b174-5b04770aea08" name="Changes" comment="v1.0">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tasarım/creat_account.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Tasarım/creat_account.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tasarım/login_panel.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Tasarım/login_panel.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tasarım/main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Tasarım/main.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tasarım/reset_password.ui" beforeDir="false" afterPath="$PROJECT_DIR$/Tasarım/reset_password.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/creat_account.py" beforeDir="false" afterPath="$PROJECT_DIR$/creat_account.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login_panel.py" beforeDir="false" afterPath="$PROJECT_DIR$/login_panel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/master_control.py" beforeDir="false" afterPath="$PROJECT_DIR$/master_control.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reset_password.py" beforeDir="false" afterPath="$PROJECT_DIR$/reset_password.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Password-Manager.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tasarım/about.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tasarım/creat_account.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tasarım/diğer/add_new.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tasarım/login_panel.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tasarım/main.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tasarım/reset_password.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/master_control/Analysis-00.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/master_control/EXE-00.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/master_control/PKG-00.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/master_control/PYZ-00.pyz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/master_control/PYZ-00.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/master_control/base_library.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/master_control/generated-42c97e99eddc529af68e7529ffd7383dd4f1ed277f91f648c3da99edd51ca116.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/master_control/master_control.exe.manifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/master_control/master_control.pkg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/master_control/warn-master_control.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/master_control/xref-master_control.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/arka_plan.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/arka_plan_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/arka_plan_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/bullet-point.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/bullet_beyazpng.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/changes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/changes_beyaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/content-management.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/content-management_beyaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/encryption.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/encryption_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/hide.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/info-button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/info-button_beyaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/information-button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/information-button_beyaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/key.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/key_siyah.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/lock.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/lock_.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/lock_beyaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/lock_beyaz_.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/log-in.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/login_siyah.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/magnifier.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/magnifier_beyaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/menu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/new-page.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/new-page_beyaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/next.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/next_beyaz_left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/next_beyaz_right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/notification.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/notification_beyaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/padlock.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/padlock_beyaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/points.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/points_beyaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/profile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/profile_beyaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/refresh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/refresh_siyah.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/register.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/register_beyaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/select.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/select_beyaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/smoke.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/smoke_beyaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/trash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/trash_beyaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/user_beyaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resimler/view.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/master_control.exe" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +283,7 @@
       <workItem from="1683885031358" duration="135000" />
       <workItem from="1683885178432" duration="2639000" />
       <workItem from="1683890105038" duration="1576000" />
-      <workItem from="1683989558892" duration="3662000" />
+      <workItem from="1683989558892" duration="4307000" />
     </task>
     <task id="LOCAL-00001" summary="v1.0">
       <created>1683460978359</created>
@@ -272,11 +341,29 @@
       <option name="project" value="LOCAL" />
       <updated>1683875549037</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="v1.0">
+      <created>1683996567544</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683996567544</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v1.0f" />
@@ -288,6 +375,6 @@
     <SUITE FILE_PATH="coverage/password_manager$deneme.coverage" NAME="deneme Coverage Results" MODIFIED="1683538814405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/password_manager$database.coverage" NAME="database Coverage Results" MODIFIED="1683543853934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/password_manager$main.coverage" NAME="main Coverage Results" MODIFIED="1683196919468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Password_Manager$master_control.coverage" NAME="master_control Coverage Results" MODIFIED="1683996259197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Password_Manager$master_control.coverage" NAME="master_control Coverage Results" MODIFIED="1683996434608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

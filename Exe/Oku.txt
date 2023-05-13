@@ -1,0 +1,6 @@
+mysql 8.0.33 Kur 
+
+Kullanıcı adı : root
+Şifresi : 2023
+
+Olucak
