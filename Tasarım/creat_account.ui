@@ -10,6 +10,18 @@
     <height>471</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>459</width>
+    <height>471</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>459</width>
+    <height>471</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -45,9 +57,10 @@ background-size: cover;
     </property>
     <property name="font">
      <font>
-      <family>System</family>
-      <pointsize>12</pointsize>
+      <family>Times New Roman</family>
+      <pointsize>-1</pointsize>
       <weight>50</weight>
+      <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
@@ -58,6 +71,7 @@ background-size: cover;
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
+  font: 18px &quot;Times New Roman&quot;;
 }
 
 #password_again:focus {
@@ -101,7 +115,11 @@ border: 2px solid #fff;
     </property>
     <property name="font">
      <font>
+      <family>Times New Roman</family>
       <pointsize>-1</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -111,7 +129,7 @@ border: 2px solid #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  font-size: 14px;
+   font: 16px &quot;Times New Roman&quot;;
 
   letter-spacing: 1px;
   transition: background-color 0.2s ease-in-out;
@@ -166,9 +184,10 @@ QPushButton:pressed {
     </property>
     <property name="font">
      <font>
-      <family>System</family>
-      <pointsize>12</pointsize>
+      <family>Times New Roman</family>
+      <pointsize>-1</pointsize>
       <weight>50</weight>
+      <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
@@ -179,6 +198,7 @@ QPushButton:pressed {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
+  font: 18px &quot;Times New Roman&quot;;
 }
 
 #username:focus {
@@ -202,22 +222,22 @@ border: 2px solid #fff;
    <widget class="QPushButton" name="generate_password">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>340</x>
       <y>260</y>
-      <width>101</width>
+      <width>105</width>
       <height>51</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>0</width>
-      <height>0</height>
+      <width>105</width>
+      <height>51</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
-      <width>16777215</width>
-      <height>16777215</height>
+      <width>105</width>
+      <height>51</height>
      </size>
     </property>
     <property name="styleSheet">
@@ -227,7 +247,7 @@ border: 2px solid #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  font-size: 12px;
+   font: 16px &quot;Times New Roman&quot;;
 
   letter-spacing: 1px;
   transition: background-color 0.2s ease-in-out;
@@ -270,9 +290,10 @@ Password</string>
     </property>
     <property name="font">
      <font>
-      <family>System</family>
-      <pointsize>12</pointsize>
+      <family>Times New Roman</family>
+      <pointsize>-1</pointsize>
       <weight>50</weight>
+      <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
@@ -283,6 +304,7 @@ Password</string>
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
+  font: 18px &quot;Times New Roman&quot;;
 }
 
 #password:focus {
@@ -409,12 +431,12 @@ border: 2px solid #fff;
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>431</width>
+      <width>421</width>
       <height>81</height>
      </rect>
     </property>
@@ -458,6 +480,7 @@ color: rgb(255, 255, 255);</string>
      </item>
     </layout>
    </widget>
+   <zorder>layoutWidget</zorder>
    <zorder>label_3</zorder>
    <zorder>label_2</zorder>
    <zorder>password_again</zorder>
@@ -466,9 +489,6 @@ color: rgb(255, 255, 255);</string>
    <zorder>generate_password</zorder>
    <zorder>password</zorder>
    <zorder>eye_password</zorder>
-   <zorder>label</zorder>
-   <zorder>horizontalSpacer</zorder>
-   <zorder>horizontalSpacer_2</zorder>
    <zorder>back_frost</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">

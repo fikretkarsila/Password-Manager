@@ -17,7 +17,7 @@ from main import Ui_MainWindow_main
 from about import Ui_MainWindow_about
 from creat_account import Ui_MainWindow_create
 
-def kosul_kutusu(Title,Contents,Signal,Picture_Path):
+def condition_box(Title,Contents,Signal,Picture_Path):
     message = QMessageBox()
     message.setWindowTitle(Title)
     message.setText(Contents)
@@ -37,7 +37,7 @@ def kosul_kutusu(Title,Contents,Signal,Picture_Path):
     else:
         return False
 
-def mesaj_kutusu(Title, Contents, Signal, Picture_Path):  # Mesaj Bildirim Kutusu
+def message_box(Title, Contents, Signal, Picture_Path):  # Mesaj Bildirim Kutusu
     message = QMessageBox()
     message.setWindowIcon(QIcon(Picture_Path))
     message.setWindowTitle(Title)
@@ -86,9 +86,9 @@ try:
                     password_again = create.password_again.text().strip()
 
                     if len(username) == 0 or len(password) == 0 or len(password_again) == 0:
-                        raise SyntaxError(mesaj_kutusu("Info", "Fill in all fields.", QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+                        raise SyntaxError(message_box("Info", "Fill in all fields.", QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
                     elif password != password_again:
-                        raise SyntaxError(mesaj_kutusu("Info", "Passwords do not match.", QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+                        raise SyntaxError(message_box("Info", "Passwords do not match.", QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
 
                     self.cursor.execute("SELECT username FROM login_password")
                     users,control = self.cursor.fetchall(),False
@@ -101,7 +101,7 @@ try:
                             break
 
                     if control:
-                        raise SyntaxError(mesaj_kutusu("Info", "There is already such a user.", QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+                        raise SyntaxError(message_box("Info", "There is already such a user.", QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
                     else:
 
                         self.cursor.execute("INSERT INTO login_password(username,password) VALUES (%s,%s)",(username,password))
@@ -110,7 +110,7 @@ try:
                         for widget in self.findChildren(QLineEdit):
                             widget.clear()
 
-                        mesaj_kutusu("Info", f"Your registration has been successfully created. Please make a note of your username and password.\n\nUsername :  {username}\nPassword : {password}", QMessageBox.Icon.Information,"Resimler/information-button_beyaz.png")
+                        message_box("Info", f"Your registration has been successfully created. Please make a note of your username and password.\n\nUsername :  {username}\nPassword : {password}", QMessageBox.Icon.Information,"Resimler/information-button_beyaz.png")
 
                         self.main_create.close()
                         self.show()
@@ -179,6 +179,8 @@ try:
             create.generate_password.clicked.connect(generate_password)
             create.eye_password.clicked.connect(view_hide)
             create.create_register.clicked.connect(save)
+
+            create.create_register.setShortcut("Return")
 
             self.main_create.setWindowTitle('New Account')
             self.main_create.setWindowIcon(QIcon('Resimler/user_beyaz.png'))
@@ -257,7 +259,7 @@ try:
                     # Texlerini aldık.
 
                     if len(username_app) == 0 or len(password_app) == 0 or len(password_repeat_app) == 0:
-                        raise SyntaxError(mesaj_kutusu("Info","Fill in all fields.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+                        raise SyntaxError(message_box("Info","Fill in all fields.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
 
                     self.cursor.execute("SELECT id,username FROM login_password") # Sorgu ile id ve kullanıcı adını çekildi.
                     users = self.cursor.fetchall() # users olan kullanıcıları gönderildi.
@@ -268,7 +270,7 @@ try:
                             control_user = True
                             break
                     else:
-                        raise SyntaxError(mesaj_kutusu("Info", "No such user was found.", QMessageBox.Icon.Critical,
+                        raise SyntaxError(message_box("Info", "No such user was found.", QMessageBox.Icon.Critical,
                                                        "Resimler/information-button_beyaz.png"))
 
                     if control_user:
@@ -276,7 +278,7 @@ try:
                             self.cursor.execute(f"UPDATE login_password SET password = '{password_app}' WHERE id = %s",(Id,))
                             self.connect.commit()
 
-                            mesaj_kutusu("Info","Password change successful.",QMessageBox.Icon.Information,"Resimler/notification_beyaz.png")
+                            message_box("Info","Password change successful.",QMessageBox.Icon.Information,"Resimler/notification_beyaz.png")
 
                             self.login_window.close()
 
@@ -288,7 +290,7 @@ try:
 
                                 self.main_window.show()
                         else:
-                            mesaj_kutusu("Info", "Passwords do not match.", QMessageBox.Icon.Warning,
+                            message_box("Info", "Passwords do not match.", QMessageBox.Icon.Warning,
                                          "Resimler/notification_beyaz.png")
 
                 except Exception as ex:
@@ -318,6 +320,8 @@ try:
             login_main.reset_password.clicked.connect(forgot_password)
             login_main.generate_password.clicked.connect(generate_password)
             login_main.eye_password.clicked.connect(gorunur)
+
+            login_main.reset_password.setShortcut("Return")
 
             self.login_window.setWindowTitle("Reset Password")
             self.login_window.setWindowIcon(QIcon("Resimler/refresh_siyah.png"))
@@ -388,7 +392,7 @@ try:
                 password = self.login.password.text().strip()
 
                 if len(username) == 0 or len(password) == 0:
-                    raise SyntaxError(mesaj_kutusu("Info","Fill in all fields.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+                    raise SyntaxError(message_box("Info","Fill in all fields.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
 
                 self.cursor.execute("SELECT username,password FROM login_password")
                 users = self.cursor.fetchall()
@@ -403,10 +407,10 @@ try:
                 else:
 
                     if not control:
-                        raise SyntaxError(mesaj_kutusu("Info", "No such user was found.", QMessageBox.Icon.Critical,
+                        raise SyntaxError(message_box("Info", "No such user was found.", QMessageBox.Icon.Critical,
                                                        "Resimler/information-button_beyaz.png"))
 
-                    mesaj_kutusu("Info","Username and/or password are incorrect.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png")
+                    message_box("Info","Username and/or password are incorrect.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png")
 
                 if control_2:
 
@@ -420,13 +424,14 @@ try:
             except Exception as ex:
                 print(ex)
         def main(self,username_K):
+
             def delete_db():
 
                 try:
                     id = main.id_del.text().strip()
 
                     if len(id) == 0:
-                        raise SyntaxError(mesaj_kutusu("Info", "Fill in all fields.", QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+                        raise SyntaxError(message_box("Info", "Fill in all fields.", QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
 
                     self.cursor.execute("SELECT id FROM user_data")
                     control_id, users_id = False, self.cursor.fetchall()
@@ -437,16 +442,16 @@ try:
                             break
 
                     if not control_id:
-                        raise SyntaxError(mesaj_kutusu("Info", "No record found with this id.", QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+                        raise SyntaxError(message_box("Info", "No record found with this id.", QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
 
 
-                    result = kosul_kutusu("Info","Are you sure you want to delete ?",QMessageBox.Icon.Critical,"Resimler/information-button_beyaz.png")
+                    result = condition_box("Info","Are you sure you want to delete ?",QMessageBox.Icon.Critical,"Resimler/information-button_beyaz.png")
 
                     if result:
                         self.cursor.execute("DELETE FROM user_data WHERE id = %s",(id,))
                         self.connect.commit()
 
-                        mesaj_kutusu('Info', 'The deletion was successful.', QMessageBox.Icon.Information,'Resimler/info-button_beyaz.png')
+                        message_box('Info', 'The deletion was successful.', QMessageBox.Icon.Information,'Resimler/info-button_beyaz.png')
 
                         all_show()
 
@@ -467,7 +472,7 @@ try:
                     password_repeat = main.password_repeat_edit.text().strip()
 
                     if len(id) == 0 or len(website) == 0 or len(username) == 0 or len(password) == 0 or len(password_repeat) == 0:
-                        raise SyntaxError(mesaj_kutusu("Info","Fill in all fields.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+                        raise SyntaxError(message_box("Info","Fill in all fields.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
 
                     self.cursor.execute("SELECT id FROM user_data")
                     control_id,users_id = False,self.cursor.fetchall()
@@ -508,12 +513,12 @@ try:
                                 widget.clear()
 
 
-                        mesaj_kutusu('Info', 'Registration successfully added.', QMessageBox.Icon.Information,
+                        message_box('Info', 'Registration successfully added.', QMessageBox.Icon.Information,
                                      'Resimler/info-button_beyaz.png')
 
                         all_show()
                     else:
-                        raise SyntaxError(mesaj_kutusu("Info","No record found with this id.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+                        raise SyntaxError(message_box("Info","No record found with this id.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
 
 
                 except Exception as ex:
@@ -526,7 +531,7 @@ try:
                     username = main.username_search.text().strip()
 
                     if len(username) == 0:
-                        raise SyntaxError(mesaj_kutusu("Info","Fill in all fields.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+                        raise SyntaxError(message_box("Info","Fill in all fields.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
 
                     self.cursor.execute(f"""SELECT id,website_name,username_data.username,password FROM user_data 
                                         INNER JOIN username_data ON user_data.username_id = username_data.username_id
@@ -536,7 +541,7 @@ try:
                     infos, rowIndex = self.cursor.fetchall(), 0  # Bilgilerimizi değişkene attık.
 
                     if len(infos) == 0:
-                        raise SyntaxError(mesaj_kutusu("Info","No Records Found.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+                        raise SyntaxError(message_box("Info","No Records Found.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
 
                     main.girdiler.setRowCount(0)
 
@@ -568,7 +573,7 @@ try:
                     password_repeat = main.password_repeat_new.text().strip()
 
                     if len(website_name) == 0 or len(username) == 0 or len(password) == 0 or len(password_repeat) == 0:
-                        raise SyntaxError(mesaj_kutusu("Info","Fill in all fields.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
+                        raise SyntaxError(message_box("Info","Fill in all fields.",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png"))
 
                     self.cursor.execute("SELECT * FROM username_data")
                     users,user_control = self.cursor.fetchall(),False
@@ -582,7 +587,7 @@ try:
                         self.cursor.execute(f"INSERT INTO user_data (website_name,username_id,password) VALUES (%s,'{Id}',%s)",(website_name,password))
                         self.connect.commit()
 
-                        mesaj_kutusu('Info','Registration successfully added.',QMessageBox.Icon.Information,'Resimler/info-button_beyaz.png')
+                        message_box('Info','Registration successfully added.',QMessageBox.Icon.Information,'Resimler/info-button_beyaz.png')
 
                         for widget in main.groupBox.findChildren(QLineEdit):
                             widget.clear()
@@ -595,7 +600,7 @@ try:
                         self.cursor.execute(f"INSERT INTO user_data (website_name,username_id,password) VALUES (%s,'{Id}',%s)",(website_name,password))
                         self.connect.commit()
 
-                        mesaj_kutusu('Info', 'Registration successfully added.', QMessageBox.Icon.Information,
+                        message_box('Info', 'Registration successfully added.', QMessageBox.Icon.Information,
                                      'Resimler/info-button_beyaz.png')
 
                         for widget in main.groupBox.findChildren(QLineEdit):
@@ -858,4 +863,4 @@ try:
     sys.exit(application.exec())
 
 except Exception as ex:
-    mesaj_kutusu("Info",f"Hata Mesajı : {ex}",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png")
+    message_box("Info",f"Hata Mesajı : {ex}",QMessageBox.Icon.Warning,"Resimler/information-button_beyaz.png")

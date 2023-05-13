@@ -93,13 +93,17 @@ background-size: cover;
     </property>
     <property name="maximumSize">
      <size>
-      <width>155</width>
+      <width>165</width>
       <height>41</height>
      </size>
     </property>
     <property name="font">
      <font>
+      <family>Times New Roman</family>
       <pointsize>-1</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -109,7 +113,7 @@ background-size: cover;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  font-size: 14px;
+  font: 16px &quot;Times New Roman&quot;;
   letter-spacing: 1px;
   transition: background-color 0.2s ease-in-out;
 }
@@ -127,9 +131,12 @@ QPushButton:pressed {
     </property>
     <property name="iconSize">
      <size>
-      <width>20</width>
+      <width>16</width>
       <height>16</height>
      </size>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
     <property name="flat">
      <bool>true</bool>
@@ -158,9 +165,10 @@ QPushButton:pressed {
     </property>
     <property name="font">
      <font>
-      <family>System</family>
-      <pointsize>12</pointsize>
+      <family>Times New Roman</family>
+      <pointsize>-1</pointsize>
       <weight>50</weight>
+      <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
@@ -171,6 +179,7 @@ QPushButton:pressed {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
+  font: 18px &quot;Times New Roman&quot;;
 }
 
 #password:focus {
@@ -211,7 +220,11 @@ border: 2px solid #fff;
     </property>
     <property name="font">
      <font>
+      <family>Times New Roman</family>
       <pointsize>-1</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -221,8 +234,7 @@ border: 2px solid #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  font-size: 14px;
-
+  font: 16px &quot;Times New Roman&quot;;
   letter-spacing: 1px;
   transition: background-color 0.2s ease-in-out;
 }
@@ -339,9 +351,10 @@ QPushButton:pressed {
     </property>
     <property name="font">
      <font>
-      <family>System</family>
-      <pointsize>12</pointsize>
+      <family>Times New Roman</family>
+      <pointsize>-1</pointsize>
       <weight>50</weight>
+      <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
@@ -352,6 +365,7 @@ QPushButton:pressed {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
+  font: 18px &quot;Times New Roman&quot;;
 }
 
 #username:focus {
@@ -369,7 +383,7 @@ border: 2px solid #fff;
      <string>Username</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -408,7 +422,11 @@ border: 2px solid #fff;
        </property>
        <property name="font">
         <font>
+         <family>Times New Roman</family>
          <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
        </property>
        <property name="styleSheet">
@@ -418,7 +436,7 @@ border: 2px solid #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  font-size: 14px;
+  font: 17px &quot;Times New Roman&quot;;
   letter-spacing: 1px;
   transition: background-color 0.2s ease-in-out;
 }
