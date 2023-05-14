@@ -128,21 +128,21 @@ class Ui_MainWindow_login(object):
 "}\n"
 "")
         self.login.setObjectName("login")
-        self.eye_password = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.eye_password.setGeometry(QtCore.QRect(297, 313, 30, 30))
-        self.eye_password.setMinimumSize(QtCore.QSize(30, 30))
-        self.eye_password.setMaximumSize(QtCore.QSize(30, 30))
-        self.eye_password.setMouseTracking(True)
-        self.eye_password.setStyleSheet("QPushButton:pressed { background-color: transparent; }\n"
+        self.eye_password_login = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.eye_password_login.setGeometry(QtCore.QRect(297, 313, 30, 30))
+        self.eye_password_login.setMinimumSize(QtCore.QSize(30, 30))
+        self.eye_password_login.setMaximumSize(QtCore.QSize(30, 30))
+        self.eye_password_login.setMouseTracking(True)
+        self.eye_password_login.setStyleSheet("QPushButton:pressed { background-color: transparent; }\n"
 "")
-        self.eye_password.setText("")
+        self.eye_password_login.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("Tasarım\\../Resimler/view.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.eye_password.setIcon(icon1)
-        self.eye_password.setIconSize(QtCore.QSize(30, 30))
-        self.eye_password.setShortcut("")
-        self.eye_password.setFlat(True)
-        self.eye_password.setObjectName("eye_password")
+        self.eye_password_login.setIcon(icon1)
+        self.eye_password_login.setIconSize(QtCore.QSize(30, 30))
+        self.eye_password_login.setShortcut("")
+        self.eye_password_login.setFlat(True)
+        self.eye_password_login.setObjectName("eye_password_login")
         self.label = QtWidgets.QLabel(parent=self.centralwidget)
         self.label.setGeometry(QtCore.QRect(90, 10, 188, 188))
         self.label.setMinimumSize(QtCore.QSize(188, 188))
@@ -234,7 +234,7 @@ class Ui_MainWindow_login(object):
         MainWindow_login.setTabOrder(self.username, self.password)
         MainWindow_login.setTabOrder(self.password, self.login)
         MainWindow_login.setTabOrder(self.login, self.reset_password)
-        MainWindow_login.setTabOrder(self.reset_password, self.eye_password)
+        MainWindow_login.setTabOrder(self.reset_password, self.eye_password_login)
 
     def retranslateUi(self, MainWindow_login):
         _translate = QtCore.QCoreApplication.translate
@@ -244,13 +244,3 @@ class Ui_MainWindow_login(object):
         self.login.setText(_translate("MainWindow_login", "Login"))
         self.username.setPlaceholderText(_translate("MainWindow_login", "Username"))
         self.create_account.setText(_translate("MainWindow_login", "Don\'t have an account ?"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow_login = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow_login()
-    ui.setupUi(MainWindow_login)
-    MainWindow_login.show()
-    sys.exit(app.exec())

@@ -28,30 +28,30 @@ class Ui_MainWindow_reset_password(object):
         self.label.setText("")
         self.label.setPixmap(QtGui.QPixmap("Tasarım\\../Resimler/refresh.png"))
         self.label.setObjectName("label")
-        self.back_frost = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.back_frost.setGeometry(QtCore.QRect(0, 10, 62, 58))
-        self.back_frost.setText("")
+        self.back_frost_reset = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.back_frost_reset.setGeometry(QtCore.QRect(0, 10, 62, 58))
+        self.back_frost_reset.setText("")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("Tasarım\\../Resimler/points_beyaz.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.back_frost.setIcon(icon)
-        self.back_frost.setIconSize(QtCore.QSize(50, 50))
-        self.back_frost.setFlat(True)
-        self.back_frost.setObjectName("back_frost")
-        self.eye_password = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.eye_password.setGeometry(QtCore.QRect(320, 163, 30, 30))
-        self.eye_password.setMinimumSize(QtCore.QSize(30, 30))
-        self.eye_password.setMaximumSize(QtCore.QSize(30, 30))
-        self.eye_password.setMouseTracking(True)
-        self.eye_password.setStyleSheet("QPushButton:pressed { background-color: transparent; }\n"
+        self.back_frost_reset.setIcon(icon)
+        self.back_frost_reset.setIconSize(QtCore.QSize(50, 50))
+        self.back_frost_reset.setFlat(True)
+        self.back_frost_reset.setObjectName("back_frost_reset")
+        self.eye_password_reset = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.eye_password_reset.setGeometry(QtCore.QRect(320, 163, 30, 30))
+        self.eye_password_reset.setMinimumSize(QtCore.QSize(30, 30))
+        self.eye_password_reset.setMaximumSize(QtCore.QSize(30, 30))
+        self.eye_password_reset.setMouseTracking(True)
+        self.eye_password_reset.setStyleSheet("QPushButton:pressed { background-color: transparent; }\n"
 "")
-        self.eye_password.setText("")
+        self.eye_password_reset.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("Tasarım\\../Resimler/view.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.eye_password.setIcon(icon1)
-        self.eye_password.setIconSize(QtCore.QSize(30, 30))
-        self.eye_password.setShortcut("")
-        self.eye_password.setFlat(True)
-        self.eye_password.setObjectName("eye_password")
+        self.eye_password_reset.setIcon(icon1)
+        self.eye_password_reset.setIconSize(QtCore.QSize(30, 30))
+        self.eye_password_reset.setShortcut("")
+        self.eye_password_reset.setFlat(True)
+        self.eye_password_reset.setObjectName("eye_password_reset")
         self.username = QtWidgets.QLineEdit(parent=self.centralwidget)
         self.username.setGeometry(QtCore.QRect(110, 100, 245, 43))
         self.username.setMinimumSize(QtCore.QSize(245, 43))
@@ -142,11 +142,11 @@ class Ui_MainWindow_reset_password(object):
         self.password.setEchoMode(QtWidgets.QLineEdit.EchoMode.PasswordEchoOnEdit)
         self.password.setClearButtonEnabled(False)
         self.password.setObjectName("password")
-        self.generate_password = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.generate_password.setGeometry(QtCore.QRect(370, 210, 105, 51))
-        self.generate_password.setMinimumSize(QtCore.QSize(105, 51))
-        self.generate_password.setMaximumSize(QtCore.QSize(105, 51))
-        self.generate_password.setStyleSheet("QPushButton {\n"
+        self.generate_password_reset = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.generate_password_reset.setGeometry(QtCore.QRect(370, 210, 105, 51))
+        self.generate_password_reset.setMinimumSize(QtCore.QSize(105, 51))
+        self.generate_password_reset.setMaximumSize(QtCore.QSize(105, 51))
+        self.generate_password_reset.setStyleSheet("QPushButton {\n"
 "  background-color: #4A4A4A;\n"
 "  color: #fff;\n"
 "  padding: 10px 20px;\n"
@@ -166,7 +166,7 @@ class Ui_MainWindow_reset_password(object):
 "  background-color: #333;\n"
 "}\n"
 "")
-        self.generate_password.setObjectName("generate_password")
+        self.generate_password_reset.setObjectName("generate_password_reset")
         self.reset_password = QtWidgets.QPushButton(parent=self.centralwidget)
         self.reset_password.setGeometry(QtCore.QRect(175, 265, 180, 45))
         self.reset_password.setMinimumSize(QtCore.QSize(180, 45))
@@ -205,13 +205,13 @@ class Ui_MainWindow_reset_password(object):
         self.reset_password.setFlat(False)
         self.reset_password.setObjectName("reset_password")
         self.label.raise_()
-        self.back_frost.raise_()
+        self.back_frost_reset.raise_()
         self.username.raise_()
         self.password_again.raise_()
         self.password.raise_()
-        self.generate_password.raise_()
+        self.generate_password_reset.raise_()
         self.reset_password.raise_()
-        self.eye_password.raise_()
+        self.eye_password_reset.raise_()
         MainWindow_reset_password.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow_reset_password)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 512, 21))
@@ -226,9 +226,9 @@ class Ui_MainWindow_reset_password(object):
         MainWindow_reset_password.setTabOrder(self.username, self.password)
         MainWindow_reset_password.setTabOrder(self.password, self.password_again)
         MainWindow_reset_password.setTabOrder(self.password_again, self.reset_password)
-        MainWindow_reset_password.setTabOrder(self.reset_password, self.generate_password)
-        MainWindow_reset_password.setTabOrder(self.generate_password, self.eye_password)
-        MainWindow_reset_password.setTabOrder(self.eye_password, self.back_frost)
+        MainWindow_reset_password.setTabOrder(self.reset_password, self.generate_password_reset)
+        MainWindow_reset_password.setTabOrder(self.generate_password_reset, self.eye_password_reset)
+        MainWindow_reset_password.setTabOrder(self.eye_password_reset, self.back_frost_reset)
 
     def retranslateUi(self, MainWindow_reset_password):
         _translate = QtCore.QCoreApplication.translate
@@ -236,16 +236,6 @@ class Ui_MainWindow_reset_password(object):
         self.username.setPlaceholderText(_translate("MainWindow_reset_password", "Username"))
         self.password_again.setPlaceholderText(_translate("MainWindow_reset_password", "Password Repeat"))
         self.password.setPlaceholderText(_translate("MainWindow_reset_password", "Password"))
-        self.generate_password.setText(_translate("MainWindow_reset_password", "Generate\n"
+        self.generate_password_reset.setText(_translate("MainWindow_reset_password", "Generate\n"
 "Password"))
         self.reset_password.setText(_translate("MainWindow_reset_password", "Reset Password"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow_reset_password = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow_reset_password()
-    ui.setupUi(MainWindow_reset_password)
-    MainWindow_reset_password.show()
-    sys.exit(app.exec())

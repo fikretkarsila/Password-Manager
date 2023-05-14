@@ -599,8 +599,8 @@ class Ui_MainWindow_main(object):
         self.password_new.setObjectName("password_new")
         self.horizontalLayout_8.addWidget(self.password_new)
         self.generate_password_new = QtWidgets.QPushButton(parent=self.groupBox)
-        self.generate_password_new.setMinimumSize(QtCore.QSize(105, 51))
-        self.generate_password_new.setMaximumSize(QtCore.QSize(105, 51))
+        self.generate_password_new.setMinimumSize(QtCore.QSize(107, 51))
+        self.generate_password_new.setMaximumSize(QtCore.QSize(107, 51))
         self.generate_password_new.setStyleSheet("QPushButton {\n"
 "  background-color: #4A4A4A;\n"
 "  color: #fff;\n"
@@ -846,8 +846,8 @@ class Ui_MainWindow_main(object):
         self.password_edit.setObjectName("password_edit")
         self.horizontalLayout_13.addWidget(self.password_edit)
         self.generate_password_edit = QtWidgets.QPushButton(parent=self.groupBox_2)
-        self.generate_password_edit.setMinimumSize(QtCore.QSize(105, 51))
-        self.generate_password_edit.setMaximumSize(QtCore.QSize(105, 51))
+        self.generate_password_edit.setMinimumSize(QtCore.QSize(107, 51))
+        self.generate_password_edit.setMaximumSize(QtCore.QSize(107, 51))
         self.generate_password_edit.setStyleSheet("QPushButton {\n"
 "  background-color: #4A4A4A;\n"
 "  color: #fff;\n"
@@ -1028,13 +1028,3 @@ class Ui_MainWindow_main(object):
 "Password"))
         self.password_repeat_edit.setPlaceholderText(_translate("MainWindow_main", "Password Repeat"))
         self.save_change.setText(_translate("MainWindow_main", "Save Change"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow_main = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow_main()
-    ui.setupUi(MainWindow_main)
-    MainWindow_main.show()
-    sys.exit(app.exec())
