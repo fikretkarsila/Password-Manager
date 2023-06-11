@@ -7,7 +7,7 @@ import mysql.connector # Veritabanı bağlantı
 from mysql.connector.locales.eng import client_error
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtWidgets import QMainWindow,QApplication,QMessageBox,QLineEdit,QTableWidgetItem
+from PyQt6.QtWidgets import QMainWindow,QApplication,QMessageBox,QLineEdit,QTableWidgetItem,QFileDialog
 from PyQt6.QtCore import Qt,QUrl
 from PyQt6.QtGui import QDesktopServices,QIcon
 
@@ -177,7 +177,6 @@ try:
 
             threading_1 = Thread(target=produce)
             threading_1.start()
-
         def create_account(self):
 
             def save():
@@ -408,6 +407,61 @@ try:
             except Exception as ex:
                 print(ex)
         def main(self,username_K):
+
+            def export_data():
+
+                try:
+                    filtre = "Metin Dosyaları (*.txt);;Excel Çalışma Dosyaları (*.csv)"
+                    dosya_adi, _ = QFileDialog.getSaveFileName(None, "File Save", "", filtre)
+
+                    if dosya_adi:
+
+                        self.cursor.execute("SELECT id,website_name,username_data.username,password FROM user_data INNER JOIN username_data ON username_data.username_id = user_data.username_id")
+                        infos = self.cursor.fetchall()
+
+                        with open(dosya_adi, "w", encoding="utf-8") as file:
+                            for item in infos:
+                                file.write(",".join(map(str, item)) + "\n")
+
+                        self.message_box("Info", "The transfer was successful.", QMessageBox.Icon.Information,
+                                         "Resimler/information-button_beyaz.png")
+
+                except Exception as ex:
+                    print(f"Message Errror : {ex}")
+            def import_data():
+                try:
+                    filtre = "Metin Dosyaları (*.txt);;Excel Çalışma Dosyaları (*.csv)"
+                    file_name, _ = QFileDialog.getOpenFileName(None, "Select File", "", filtre)
+
+                    with open(file_name, "r", encoding="utf-8") as file:
+                        edit_list = [tuple(item.strip("\n") for item in info.split(",")) for info in file.readlines()]
+
+                    self.cursor.execute("SELECT * FROM username_data")
+                    username_names = self.cursor.fetchall()
+
+                    for item in edit_list:
+                        print(item)
+
+                        for user in username_names:
+
+                            if item[2] == user[1]:
+
+                                self.cursor.execute(f"INSERT INTO user_data (website_name,username_id,password) VALUES (%s,'{user[0]}',%s)",(item[1],item[3]))
+                                self.connect.commit()
+                                break
+
+                        else:
+
+                            self.cursor.execute("INSERT INTO username_data (username) VALUES (%s)", (item[2],))
+                            self.connect.commit()
+                            last_insert_id = self.cursor.lastrowid
+                            self.cursor.execute(
+                                "INSERT INTO user_data (website_name, username_id, password) VALUES (%s, %s, %s)",
+                                (item[1], last_insert_id, item[3]))
+                            self.connect.commit()
+
+                except Exception as ex:
+                    print(f"Message Errror : {ex}")
 
             def delete_db():
 
@@ -787,6 +841,9 @@ try:
 
             self.main.user_settings.clicked.connect(user_settings)
             self.main.change_user.clicked.connect(change_user)
+
+            self.main.export_data.clicked.connect(export_data)
+            self.main.import_data.clicked.connect(import_data)
 
             self.main.all_show.clicked.connect(all_show)
             self.main.save_new.clicked.connect(add_new)

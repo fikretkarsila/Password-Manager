@@ -253,6 +253,86 @@ class Ui_MainWindow_main(object):
         self.horizontalLayout.setSpacing(15)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.verticalLayout.addLayout(self.horizontalLayout)
+        self.groupBox_data = QtWidgets.QGroupBox(parent=self.centralwidget)
+        self.groupBox_data.setMinimumSize(QtCore.QSize(0, 80))
+        self.groupBox_data.setMaximumSize(QtCore.QSize(16777215, 80))
+        self.groupBox_data.setSizeIncrement(QtCore.QSize(0, 0))
+        self.groupBox_data.setStyleSheet("QGroupBox {\n"
+"   color:#fff;\n"
+"   font: 11pt;\n"
+"   border-radius: 10px;\n"
+"   border: 2px solid #fff;\n"
+"   font: 11pt \"Times New Roman\";\n"
+"}\n"
+"")
+        self.groupBox_data.setTitle("")
+        self.groupBox_data.setObjectName("groupBox_data")
+        self.horizontalLayout_25 = QtWidgets.QHBoxLayout(self.groupBox_data)
+        self.horizontalLayout_25.setContentsMargins(5, 5, 5, 5)
+        self.horizontalLayout_25.setSpacing(10)
+        self.horizontalLayout_25.setObjectName("horizontalLayout_25")
+        self.horizontalLayout_21 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_21.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_21.setSpacing(10)
+        self.horizontalLayout_21.setObjectName("horizontalLayout_21")
+        self.import_data = QtWidgets.QPushButton(parent=self.groupBox_data)
+        self.import_data.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.import_data.setStyleSheet("QPushButton {\n"
+"  background-color: #4A4A4A;\n"
+"  color: #fff;\n"
+"  padding: 10px 20px;\n"
+"  border: none;\n"
+"  border-radius: 5px;\n"
+"  font: 16px \"Times New Roman\";\n"
+"\n"
+"  letter-spacing: 1px;\n"
+"  transition: background-color 0.2s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"  background-color: #666;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"  background-color: #333;\n"
+"}\n"
+"")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("Tasarım\\../Resimler/import_beyaz.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.import_data.setIcon(icon4)
+        self.import_data.setIconSize(QtCore.QSize(22, 22))
+        self.import_data.setObjectName("import_data")
+        self.horizontalLayout_21.addWidget(self.import_data)
+        self.export_data = QtWidgets.QPushButton(parent=self.groupBox_data)
+        self.export_data.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.export_data.setStyleSheet("QPushButton {\n"
+"  background-color: #4A4A4A;\n"
+"  color: #fff;\n"
+"  padding: 10px 20px;\n"
+"  border: none;\n"
+"  border-radius: 5px;\n"
+"  font: 16px \"Times New Roman\";\n"
+"\n"
+"  letter-spacing: 1px;\n"
+"  transition: background-color 0.2s ease-in-out;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"  background-color: #666;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"  background-color: #333;\n"
+"}\n"
+"")
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap("Tasarım\\../Resimler/export_beyaz.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.export_data.setIcon(icon5)
+        self.export_data.setIconSize(QtCore.QSize(22, 22))
+        self.export_data.setObjectName("export_data")
+        self.horizontalLayout_21.addWidget(self.export_data)
+        self.horizontalLayout_25.addLayout(self.horizontalLayout_21)
+        self.verticalLayout.addWidget(self.groupBox_data)
         self.horizontalLayout_16 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_16.setContentsMargins(5, 5, 5, 5)
         self.horizontalLayout_16.setSpacing(6)
@@ -331,9 +411,9 @@ class Ui_MainWindow_main(object):
 "  background-color: #333;\n"
 "}\n"
 "")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("Tasarım\\../Resimler/trash_beyaz.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.data_delete.setIcon(icon4)
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap("Tasarım\\../Resimler/trash_beyaz.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.data_delete.setIcon(icon6)
         self.data_delete.setIconSize(QtCore.QSize(22, 22))
         self.data_delete.setObjectName("data_delete")
         self.horizontalLayout_24.addWidget(self.data_delete)
@@ -413,9 +493,9 @@ class Ui_MainWindow_main(object):
 "  background-color: #333;\n"
 "}\n"
 "")
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap("Tasarım\\../Resimler/magnifier_beyaz.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.search.setIcon(icon5)
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap("Tasarım\\../Resimler/magnifier_beyaz.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.search.setIcon(icon7)
         self.search.setIconSize(QtCore.QSize(22, 22))
         self.search.setObjectName("search")
         self.horizontalLayout_35.addWidget(self.search)
@@ -987,6 +1067,8 @@ class Ui_MainWindow_main(object):
         self.user_settings.setText(_translate("MainWindow_main", "User Settings"))
         self.change_user.setText(_translate("MainWindow_main", "Change User"))
         self.about.setText(_translate("MainWindow_main", "About"))
+        self.import_data.setText(_translate("MainWindow_main", "Import Data"))
+        self.export_data.setText(_translate("MainWindow_main", "Export Data"))
         self.groupBox_5.setTitle(_translate("MainWindow_main", "Deletion Location"))
         self.id_del.setPlaceholderText(_translate("MainWindow_main", "Enter ID"))
         self.data_delete.setText(_translate("MainWindow_main", "Delete"))
